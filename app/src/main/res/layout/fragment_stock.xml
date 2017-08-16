@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROW 1"
+            style="@style/TextDefault"/>
+
+        <TextView
+            android:id="@+id/tv_tier_space"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center"
+            android:text="SPACE LEFT : 3"
+            style="@style/TextDefault"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/stock_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_tier"
+            android:layout_above="@id/tv_tier_space"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/adapter_stock"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Glide Media Delivery</string>
+    <string name="download_dispatch">Download Despatch\nInformation</string>
+    <string name="upload_dispatch">Upload Completed\nDespatch(s)</string>
+    <string name="no_despatch">No despatches downloaded</string>
+    <string name="remove_dispatch">Remove All Data</string>
+    <string name="home">Home</string>
+    <string name="despatch">Despatch</string>
+    <string name="downloading">Downloading Despatches...</string>
+    <string name="uploading">Uploading Despatches...</string>
+    <string name="removing">Removing Despatches...</string>
+    <string name="upload_success">Despatches Successfully Uploaded.</string>
+    <string name="remove_success">Despatches Successfully Removed.</string>
+    <string name="remove_failed">Remove Failed.</string>
+    <string name="view_crate">VIEW CRATE</string>
+    <string name="cannot_deliver">CANNOT DELIVER</string>
+    <string name="network_error">Network Error</string>
+    <string name="processing">Processing...</string>
+    <string name="signing_in">Signing In...</string>
+    <string name="db_error">Database Error</string>
+    <string name="remove_stock">Remove Stock</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">Ok</string>
+    <string name="no_completed_despatch">No Completed Despatch</string>
+    <string name="outlet_complete_format" formatted="false">Outlet completed %d out of %d</string>
+    <string name="tier_space_format">SPACE LEFT: %s units</string>
+    <string name="login_failed">Login Failed.</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="download_accomplished">Download Accomplished.</string>
+
+    <string name="clone_despatch">DESPATCH:</string>
+    <string name="clone_run">RUN:</string>
+    <string name="clone_driver">DRIVER:</string>
+    <string name="clone_route">ROUTE:</string>
+    <string name="clone_reg">REG:</string>
+
+    <string name="title_despatch_fragment">Despatches Ready for Delivery</string>
+
+    <string name="msg_ask_remove_despatch">Are you sure you want to remove this despatch?</string>
+    <string name="msg_ask_remove_datas">Are you sure you want to remove all datas?</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_username">UserName</string>
+    <string name="hint_access_id">AccessID</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">LOG IN</string>
+    <string name="btn_full">FULL</string>
+    <string name="btn_part">PART</string>
+    <string name="btn_none">NONE</string>
+    <string name="btn_missing">MISSING</string>
+    <string name="btn_save">SAVE</string>
+    <string name="btn_complete">COMPLETE</string>
+    <string name="btn_reset">RESET</string>
+
+    <array name="outlet_reason">
+        <item>Closed</item>
+        <item>No Access Closed</item>
+        <item>Out of Hours Closed</item>
+        <item>Refurbishment Closed</item>
+        <item>Site has Closed Down</item>
+        <item>Display not Accessible on this visit</item>
+        <item>Display missing</item>
+        <item>Display broken</item>
+        <item>Display temporarily Put Away</item>
+        <item>Could Not Locate Site</item>
+        <item>Not Enough Time to Complete</item>
+        <item>Delivered</item>
+    </array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
