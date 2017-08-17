@@ -6,7 +6,7 @@ package delivery.com.util;
 
 public class URLManager {
     public static String getDownloadDespatchURL() {
-        return "http://glideadmin.co.uk/json/delivery.php";
+        return "http://glideadmin.co.uk/json/delivery-download.php";
     }
 
     public static String getUploadDespatchURL() {

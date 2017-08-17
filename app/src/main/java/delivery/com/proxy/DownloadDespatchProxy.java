@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import delivery.com.application.DeliveryApplication;
 import delivery.com.util.URLManager;
 import delivery.com.vo.DownloadDespatchRequestVo;
 import delivery.com.vo.DownloadDespatchResponseVo;
@@ -19,6 +20,8 @@ public class DownloadDespatchProxy extends BaseProxy {
 
     public DownloadDespatchResponseVo run() throws IOException {
         FormBody.Builder formBuilder = new FormBody.Builder();
+
+        formBuilder.add("staffID", DeliveryApplication.staffID);
 
         RequestBody formBody = formBuilder.build();
 

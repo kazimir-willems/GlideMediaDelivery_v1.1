@@ -8,4 +8,5 @@ public class LoginResponseVo {
     public String access;
     public String name;
     public String status;
+    public String staffID;
 }
