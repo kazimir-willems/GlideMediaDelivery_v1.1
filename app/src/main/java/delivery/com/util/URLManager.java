@@ -15,6 +15,6 @@ public class URLManager {
     }
 
     public static String getLoginURL() {
-        return "http://glideadmin.co.uk/json/login.php";
+        return "http://www.glideadmin.co.uk/json/delivery-login.php";
     }
 }
