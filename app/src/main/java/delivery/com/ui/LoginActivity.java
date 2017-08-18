@@ -78,11 +78,8 @@ public class LoginActivity extends AppCompatActivity {
         if (responseVo != null) {
             if(responseVo.status.equals("success")) {
                 String access = responseVo.access;
-                /*if(access.equals("driver")) {
-                    DeliveryApplication.nAccess = StateConsts.USER_DRIVER;
-                } else if(access.equals("admin"))
-                    DeliveryApplication.nAccess = StateConsts.USER_ADMIN;*/
                 DeliveryApplication.staffID = responseVo.staffID;
+                DeliveryApplication.passcode = responseVo.passcode;
                 startHomeActivity();
             } else {
                 loginFailed();

@@ -12,6 +12,7 @@ public class DeliveryApplication extends Application {
     private static boolean bLoginStatus = false;
     public static int nAccess = 0;
     public static String staffID = "";
+    public static String passcode = "";
 
     @Override
     public void onCreate() {

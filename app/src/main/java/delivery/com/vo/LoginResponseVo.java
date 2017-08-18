@@ -9,4 +9,5 @@ public class LoginResponseVo {
     public String name;
     public String status;
     public String staffID;
+    public String passcode;
 }
