@@ -52,6 +52,9 @@
     <string name="btn_save">SAVE</string>
     <string name="btn_complete">COMPLETE</string>
     <string name="btn_reset">RESET</string>
+    <string name="title_step_one">STEP 1. REMOVE STOCK</string>
+    <string name="title_step_two">STEP 2. CHECK ORDER</string>
+    <string name="title_step_three">STEP 3. ADD STOCK</string>
 
     <array name="outlet_reason">
         <item>Closed</item>

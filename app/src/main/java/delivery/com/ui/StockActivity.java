@@ -120,7 +120,7 @@ public class StockActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.btn_save)
+    /*@OnClick(R.id.btn_save)
     void onClickBtnSave() {
         StockDB stockDB = new StockDB(StockActivity.this);
         OutletDB outletDB = new OutletDB(StockActivity.this);
@@ -133,7 +133,7 @@ public class StockActivity extends AppCompatActivity
         outletDB.updateOutlet(outletItem);
 
         finish();
-    }
+    }*/
 
     @OnClick(R.id.btn_complete)
     void onClickBtnComplete() {

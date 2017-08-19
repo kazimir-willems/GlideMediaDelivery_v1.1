@@ -107,7 +107,8 @@
                 android:text="@string/btn_none"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
-                android:background="@drawable/qty_bg_default"/>
+                android:background="@drawable/qty_bg_default"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/btn_missing"

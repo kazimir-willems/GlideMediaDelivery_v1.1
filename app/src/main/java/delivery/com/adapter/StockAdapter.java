@@ -125,7 +125,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
             }
         });
 
-        holder.btnNone.setOnClickListener(new View.OnClickListener() {
+        /*holder.btnNone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 holder.setBtnsDefault();
@@ -134,7 +134,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
                 item.setQty(StateConsts.STOCK_QTY_NONE);
                 parent.updateStockQty(item);
             }
-        });
+        });*/
 
         holder.btnMissing.setOnClickListener(new View.OnClickListener() {
             @Override

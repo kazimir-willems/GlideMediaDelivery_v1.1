@@ -78,7 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
-                    android:text="@string/title_step_one"
+                    android:text="@string/title_step_three"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="4dp"
                     android:textAlignment="center"
@@ -103,7 +103,7 @@
                 android:layout_height="match_parent"
                 app:layoutManager="LinearLayoutManager"
                 android:layout_above="@id/bottom_layout"
-                tools:listitem="@layout/adapter_remove_stock"/>
+                tools:listitem="@layout/adapter_add_stock"/>
 
         </RelativeLayout>
 

@@ -42,6 +42,14 @@
                         android:layout_height="wrap_content"
                         android:text="[4565]"
                         style="@style/TextDefault"/>
+
+                    <TextView
+                        android:id="@+id/tv_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        style="@style/TextDefault"
+                        android:text="[DL]"/>
                     <TextView
                         android:id="@+id/tv_stock"
                         android:layout_width="match_parent"
@@ -54,6 +62,41 @@
                         android:scrollHorizontally="true"
                         android:text="Nature in Art - Jan to August 2017"
                         style="@style/TextDefault"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_stock_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextDefault"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorLightBlue"
+                        android:text="FULL"/>
+
+                    <TextView
+                        android:id="@+id/tv_row_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextDefault"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:textColor="@color/colorRemove"
+                        android:text="ROW 1"/>
+
+                    <TextView
+                        android:id="@+id/tv_slot_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        style="@style/TextDefault"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorRemove"
+                        android:text="SLOT 2"/>
 
                 </LinearLayout>
 
