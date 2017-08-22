@@ -11,10 +11,14 @@ public class URLManager {
 
     public static String getUploadDespatchURL() {
 //        return "http://glideadmin.co.uk/json/deliverySend.php";
-        return "http://glideadmin.co.uk/json/deliveryRetrieve.php";
+        return "http://glideadmin.co.uk/json/delivery-upload.php";
     }
 
     public static String getLoginURL() {
         return "http://www.glideadmin.co.uk/json/delivery-login.php";
+    }
+
+    public static String getClockURL() {
+        return "http://www.glideadmin.co.uk/json/delivery-clock.php";
     }
 }

@@ -47,7 +47,7 @@ public class OutletActivity extends AppCompatActivity {
 
     private OutletAdapter adapter;
     private LinearLayoutManager mLinearLayoutManager;
-    private DespatchItem despatchItem;
+    public DespatchItem despatchItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

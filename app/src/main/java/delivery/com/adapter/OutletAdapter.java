@@ -21,6 +21,7 @@ import delivery.com.model.DespatchItem;
 import delivery.com.model.OutletItem;
 import delivery.com.ui.OutletActivity;
 import delivery.com.ui.ReasonActivity;
+import delivery.com.ui.RemoveStockActivity;
 import delivery.com.ui.StockActivity;
 
 public class OutletAdapter extends RecyclerView.Adapter<OutletAdapter.OutletViewHolder> {
@@ -59,9 +60,10 @@ public class OutletAdapter extends RecyclerView.Adapter<OutletAdapter.OutletView
         holder.btnViewCrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(parent, StockActivity.class);
+                Intent intent = new Intent(parent, RemoveStockActivity.class);
 
                 intent.putExtra("outlet", item);
+                intent.putExtra("despatch", parent.despatchItem);
 
                 parent.startActivity(intent);
             }

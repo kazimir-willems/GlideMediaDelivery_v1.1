@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import delivery.com.application.DeliveryApplication;
 import delivery.com.util.URLManager;
 import delivery.com.vo.DownloadDespatchResponseVo;
 import delivery.com.vo.UploadDespatchRequestVo;
@@ -19,6 +20,7 @@ public class UploadDespatchProxy extends BaseProxy {
         requestVo.data = despatches;
         FormBody.Builder formBuilder = new FormBody.Builder();
         formBuilder.add("data", requestVo.data);
+        formBuilder.add("passcode", DeliveryApplication.passcode);
 
         RequestBody formBody = formBuilder.build();
 

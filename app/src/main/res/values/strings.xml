@@ -6,6 +6,7 @@
     <string name="remove_dispatch">Remove All Data</string>
     <string name="home">Home</string>
     <string name="despatch">Despatch</string>
+    <string name="menu_clock">Clock IN/OUT</string>
     <string name="downloading">Downloading Despatches...</string>
     <string name="uploading">Uploading Despatches...</string>
     <string name="removing">Removing Despatches...</string>
@@ -55,6 +56,10 @@
     <string name="title_step_one">STEP 1. REMOVE STOCK</string>
     <string name="title_step_two">STEP 2. CHECK ORDER</string>
     <string name="title_step_three">STEP 3. ADD STOCK</string>
+    <string name="btn_clock_on">Clock ON</string>
+    <string name="btn_clock_off">Clock OFF</string>
+    <string name="btn_lunch_on">Lunch ON</string>
+    <string name="btn_lunch_off">Lunch OFF</string>
 
     <array name="outlet_reason">
         <item>Closed</item>

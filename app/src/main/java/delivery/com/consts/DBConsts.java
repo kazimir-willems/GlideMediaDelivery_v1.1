@@ -10,6 +10,8 @@ public class DBConsts {
     public static final String TABLE_NAME_OUTLET = "tbl_outlet";
     public static final String TABLE_NAME_TIER = "tbl_tier";
     public static final String TABLE_NAME_STOCK = "tbl_stock";
+    public static final String TABLE_NAME_REMOVE_STOCK = "tbl_remove_stock";
+    public static final String TABLE_NAME_CLOCK = "tbl_clock";
 
     public static final String FIELD_ID = "id";
     public static final String FIELD_DESPATCH_ID = "despatch_id";
@@ -43,7 +45,10 @@ public class DBConsts {
     public static final String FIELD_REMOVE = "remove";
     public static final String FIELD_REMOVE_ID = "remove_id";
     public static final String FIELD_TITLE_ID = "title_id";
+    public static final String FIELD_TITLE = "title";
     public static final String FIELD_SIZE = "size";
     public static final String FIELD_SLOT_ORDER = "slot_order";
 
+    public static final String FIELD_CLOCK_STATUS = "clock_status";
+    public static final String FIELD_CLOCK_TIME = "clock_time";
 }

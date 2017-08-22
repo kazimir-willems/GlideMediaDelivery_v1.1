@@ -26,6 +26,7 @@ import delivery.com.adapter.DespatchAdapter;
 import delivery.com.consts.StateConsts;
 import delivery.com.db.DespatchDB;
 import delivery.com.db.OutletDB;
+import delivery.com.db.RemoveStockDB;
 import delivery.com.db.StockDB;
 import delivery.com.db.TierDB;
 import delivery.com.model.DespatchItem;
@@ -138,6 +139,9 @@ public class DespatchFragment extends Fragment {
 
                 DespatchDB despatchDB = new DespatchDB(getActivity());
                 despatchDB.removeDespatch(item);
+
+                RemoveStockDB removeStockDB = new RemoveStockDB(getActivity());
+                removeStockDB.removeDatasByDespatchID(item.getDespatchId());
 
                 getDespatches();
             }

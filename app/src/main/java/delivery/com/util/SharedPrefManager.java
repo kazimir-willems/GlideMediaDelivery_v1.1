@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "GlideMediaPreference";
     private static final String TAG_PASSWORD = "password";
+    private static final String TAG_CLOCK_STATUS = "clock_status";
+    private static final String TAG_LUNCH_STATUS = "lunch_status";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -34,5 +36,33 @@ public class SharedPrefManager {
     public String getPassword(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getString(TAG_PASSWORD, null);
+    }
+
+    public boolean saveClockStatus(boolean status){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_CLOCK_STATUS, status);
+        editor.apply();
+        return true;
+    }
+
+    //this method will fetch the device token from shared preferences
+    public boolean getClockStatus(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_CLOCK_STATUS, false);
+    }
+
+    public boolean saveLunchStatus(boolean status){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_LUNCH_STATUS, status);
+        editor.apply();
+        return true;
+    }
+
+    //this method will fetch the device token from shared preferences
+    public boolean getLunchStatus(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_LUNCH_STATUS, false);
     }
 }

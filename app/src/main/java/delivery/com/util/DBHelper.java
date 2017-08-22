@@ -44,6 +44,14 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_SLOTS + " INTEGER," +
                     DBConsts.FIELD_TIER_SPACE + " INTEGER);";
 
+    protected static String REMOVE_STOCK_TABLE_CREATE_SQL =
+            "CREATE TABLE IF NOT EXISTS " + DBConsts.TABLE_NAME_REMOVE_STOCK + " (" +
+                    DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DBConsts.FIELD_DESPATCH_ID + " TEXT," +
+                    DBConsts.FIELD_OUTLET_ID + " TEXT," +
+                    DBConsts.FIELD_TITLE_ID + " TEXT," +
+                    DBConsts.FIELD_TITLE + " TEXT);";
+
     protected static String STOCK_TABLE_CREATE_SQL =
             "CREATE TABLE IF NOT EXISTS " + DBConsts.TABLE_NAME_STOCK + " (" +
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -61,6 +69,12 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_REMOVE + " TEXT," +
                     DBConsts.FIELD_REMOVE_ID + " TEXT);";
 
+    protected static String CLOCK_TABLE_CREATE_SQL =
+            "CREATE TABLE IF NOT EXISTS " + DBConsts.TABLE_NAME_CLOCK + " (" +
+                    DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DBConsts.FIELD_CLOCK_TIME + " TEXT," +
+                    DBConsts.FIELD_CLOCK_STATUS + " TEXT);";
+
     public DBHelper(Context context) {
         super(context, DB_NAME_PREFIX, null, DB_VERSION);
         this.getWritableDatabase().close();
@@ -74,6 +88,8 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL(OUTLET_TABLE_CREATE_SQL);
             db.execSQL(TIER_TABLE_CREATE_SQL);
             db.execSQL(STOCK_TABLE_CREATE_SQL);
+            db.execSQL(REMOVE_STOCK_TABLE_CREATE_SQL);
+            db.execSQL(CLOCK_TABLE_CREATE_SQL);
         } catch (IllegalStateException ex) {
             ex.printStackTrace();
         }

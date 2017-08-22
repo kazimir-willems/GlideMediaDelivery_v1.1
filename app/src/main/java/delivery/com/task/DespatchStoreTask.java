@@ -12,12 +12,14 @@ import org.json.JSONObject;
 import delivery.com.consts.StateConsts;
 import delivery.com.db.DespatchDB;
 import delivery.com.db.OutletDB;
+import delivery.com.db.RemoveStockDB;
 import delivery.com.db.StockDB;
 import delivery.com.db.TierDB;
 import delivery.com.event.DespatchStoreEvent;
 import delivery.com.event.DownloadDespatchEvent;
 import delivery.com.model.DespatchItem;
 import delivery.com.model.OutletItem;
+import delivery.com.model.RemoveStockItem;
 import delivery.com.model.StockItem;
 import delivery.com.model.TierItem;
 import delivery.com.proxy.DownloadDespatchProxy;
@@ -47,6 +49,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
             OutletDB outletDB = new OutletDB(ctx);
             TierDB tierDB = new TierDB(ctx);
             StockDB stockDB = new StockDB(ctx);
+            RemoveStockDB removeStockDB = new RemoveStockDB(ctx);
 
             if(jsonDespatchArray.length() == 0)
                 return 2;
@@ -85,6 +88,20 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
                         outletItem.setReason(jsonOutletItem.getInt("reason"));
 
                         outletDB.addOutlet(outletItem);
+
+                        String removeItems = jsonOutletItem.getString("removeStock");
+                        JSONArray jsonRemoveStockArray = new JSONArray(removeItems);
+
+                        for(int u = 0; u < jsonRemoveStockArray.length(); u++) {
+                            JSONObject jsonRemoveStockItem = jsonRemoveStockArray.getJSONObject(u);
+                            RemoveStockItem removeStockItem = new RemoveStockItem();
+                            removeStockItem.setDespatchID(despatchID);
+                            removeStockItem.setOutletID(outletID);
+                            removeStockItem.setTitleID(jsonRemoveStockItem.getString("titleID"));
+                            removeStockItem.setTitle(jsonRemoveStockItem.getString("title"));
+
+                            removeStockDB.addRemoveStock(removeStockItem);
+                        }
 
                         String tiers = jsonOutletItem.getString("tiers");
                         JSONArray jsonTierArray = new JSONArray(tiers);

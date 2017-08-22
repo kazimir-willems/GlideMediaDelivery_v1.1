@@ -30,7 +30,13 @@
         <activity
             android:name=".ui.ReasonActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.RemoveStockActivity"></activity>
+        <activity
+            android:name=".ui.RemoveStockActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.AddStockActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.ClockActivity"></activity>
     </application>
 
 </manifest>

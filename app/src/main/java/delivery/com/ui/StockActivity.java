@@ -1,6 +1,7 @@
 package delivery.com.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
+import delivery.com.application.DeliveryApplication;
 import delivery.com.consts.StateConsts;
 import delivery.com.db.OutletDB;
 import delivery.com.db.StockDB;
@@ -33,7 +35,9 @@ import delivery.com.db.TierDB;
 import delivery.com.fragment.DespatchFragment;
 import delivery.com.fragment.HomeFragment;
 import delivery.com.fragment.StockFragment;
+import delivery.com.model.DespatchItem;
 import delivery.com.model.OutletItem;
+import delivery.com.model.RemoveStockItem;
 import delivery.com.model.StockItem;
 import delivery.com.model.TierItem;
 import delivery.com.util.DateUtil;
@@ -57,6 +61,8 @@ public class StockActivity extends AppCompatActivity
     private int tiers = 0;
     private StockFragment[] fragments;
 
+    private DespatchItem despatchItem;
+
     private ArrayList<StockItem> tempOperationList = new ArrayList<>();
 
     @Override
@@ -67,19 +73,20 @@ public class StockActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         outletItem = (OutletItem) getIntent().getSerializableExtra("outlet");
+        despatchItem = (DespatchItem) getIntent().getSerializableExtra("despatch");
         tiers = outletItem.getTiers();
         tvOutlet.setText(outletItem.getOutlet());
         tvOutletID.setText("[" + outletItem.getOutletId() + "]");
         tvService.setText(outletItem.getServiceType());
         tvAddress.setText(outletItem.getAddress());
 
-        if(outletItem.getDelivered() != StateConsts.OUTLET_NOT_DELIVERED) {
+        /*if(outletItem.getDelivered() != StateConsts.OUTLET_NOT_DELIVERED) {
             btnComplete.setBackground(getResources().getDrawable(R.drawable.button_complete));
             btnComplete.setText(getResources().getText(R.string.btn_reset));
         } else {
             btnComplete.setBackground(getResources().getDrawable(R.drawable.button_remove));
             btnComplete.setText(getResources().getText(R.string.btn_complete));
-        }
+        }*/
 
         TierDB tierDB = new TierDB(this);
         ArrayList<TierItem> tierItems = tierDB.fetchTiers(outletItem.getDespatchId(), outletItem.getOutletId());
@@ -137,8 +144,17 @@ public class StockActivity extends AppCompatActivity
 
     @OnClick(R.id.btn_complete)
     void onClickBtnComplete() {
-        if(outletItem.getDelivered() == StateConsts.OUTLET_NOT_DELIVERED) {
-            StockDB stockDB = new StockDB(StockActivity.this);
+//        if(outletItem.getDelivered() == StateConsts.OUTLET_NOT_DELIVERED) {
+
+        Intent intent = new Intent(StockActivity.this, AddStockActivity.class);
+        intent.putExtra("outlet", outletItem);
+        intent.putExtra("despatch", despatchItem);
+
+        DeliveryApplication.operationLists = tempOperationList;
+
+        startActivity(intent);
+
+            /*StockDB stockDB = new StockDB(StockActivity.this);
             OutletDB outletDB = new OutletDB(StockActivity.this);
             for (int i = 0; i < tempOperationList.size(); i++) {
                 stockDB.updateStock(tempOperationList.get(i));
@@ -146,14 +162,12 @@ public class StockActivity extends AppCompatActivity
 
             outletItem.setDelivered(StateConsts.OUTLET_DELIVERED);
             outletItem.setDeliveredTime(DateUtil.getCurDateTime());
-            outletDB.updateOutlet(outletItem);
-        } else {
-            OutletDB outletDB = new OutletDB(StockActivity.this);
-            outletItem.setDelivered(StateConsts.OUTLET_NOT_DELIVERED);
-            outletDB.updateOutlet(outletItem);
-        }
-
-        finish();
+            outletDB.updateOutlet(outletItem);*/
+//        } else {
+//            OutletDB outletDB = new OutletDB(StockActivity.this);
+//            outletItem.setDelivered(StateConsts.OUTLET_NOT_DELIVERED);
+//            outletDB.updateOutlet(outletItem);
+//        }
     }
 
     public void addOperation(StockItem item) {
