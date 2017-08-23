@@ -2,6 +2,9 @@ package delivery.com.proxy;
 
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import delivery.com.application.DeliveryApplication;
@@ -15,10 +18,18 @@ import okhttp3.RequestBody;
 public class ClockProxy extends BaseProxy {
 
     public ClockResponseVo run(String timestamp, String clockStatus) throws IOException {
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("staffID", DeliveryApplication.staffID);
+            json.put("timedatestamp", timestamp);
+            json.put("status", clockStatus);
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
+
         FormBody.Builder formBuilder = new FormBody.Builder();
-        formBuilder.add("staffID", DeliveryApplication.staffID);
-        formBuilder.add("timedatestamp", timestamp);
-        formBuilder.add("status", clockStatus);
+        formBuilder.add("data", json.toString());
 
         RequestBody formBody = formBuilder.build();
 
