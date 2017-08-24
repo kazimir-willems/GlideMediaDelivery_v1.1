@@ -42,6 +42,13 @@
         <item name="android:background">@drawable/button_save</item>
     </style>
 
+    <style name="StepBack">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/step_background</item>
+    </style>
+
     <style name="TextDefault">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorBlack</item>

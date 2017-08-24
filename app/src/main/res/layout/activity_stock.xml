@@ -83,14 +83,14 @@
                     android:layout_marginRight="4dp"
                     android:textAlignment="center"
                     android:gravity="center_vertical"
-                    style="@style/ButtonSave"/>
+                    style="@style/StepBack"/>
 
                 <Button
                     android:id="@+id/btn_complete"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:text="@string/btn_complete"
+                    android:text="@string/btn_next"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="8dp"
                     style="@style/ButtonRemove"/>

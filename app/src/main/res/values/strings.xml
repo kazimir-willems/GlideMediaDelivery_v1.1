@@ -52,6 +52,7 @@
     <string name="btn_missing">MISSING</string>
     <string name="btn_save">SAVE</string>
     <string name="btn_complete">COMPLETE</string>
+    <string name="btn_next">NEXT</string>
     <string name="btn_reset">RESET</string>
     <string name="title_step_one">STEP 1. REMOVE STOCK</string>
     <string name="title_step_two">STEP 2. CHECK ORDER</string>

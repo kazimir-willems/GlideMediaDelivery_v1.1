@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/ButtonRemove"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:text="@string/btn_clock_on"/>
 
         <Button
@@ -32,6 +31,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             style="@style/ButtonRemove"
+            android:visibility="gone"
             android:text="@string/btn_lunch_on"/>
 
     </LinearLayout>
