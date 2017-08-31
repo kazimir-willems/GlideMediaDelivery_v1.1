@@ -99,6 +99,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
                             removeStockItem.setOutletID(outletID);
                             removeStockItem.setTitleID(jsonRemoveStockItem.getString("titleID"));
                             removeStockItem.setTitle(jsonRemoveStockItem.getString("title"));
+                            removeStockItem.setSize(jsonRemoveStockItem.getString("size"));
 
                             removeStockDB.addRemoveStock(removeStockItem);
                         }
@@ -141,7 +142,10 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
                                     stockItem.setSlot(jsonStockItem.getString("slot"));
                                 else
                                     stockItem.setSlot("0");
-                                stockItem.setQty(StateConsts.STOCK_QTY_NONE);
+                                if(stockItem.getStatus().equals("New Stock"))
+                                    stockItem.setQty(StateConsts.STOCK_QTY_FULL);
+                                else
+                                    stockItem.setQty(StateConsts.STOCK_QTY_NONE);
                                 stockItem.setRemove(jsonStockItem.getString("remove"));
                                 stockItem.setRemoveID(jsonStockItem.getString("removeID"));
 

@@ -44,6 +44,12 @@ public class AddStockAdapter extends RecyclerView.Adapter<AddStockAdapter.AddSto
         holder.tvRowNum.setText("ROW " + String.valueOf(Integer.valueOf(item.getTier()) + 1));
         holder.tvSlotNum.setText("SLOT " + String.valueOf(item.getSlotOrder()));
         holder.tvSlot.setText(String.valueOf(position + 1));
+
+        if(item.getStatus().equals("New Stock")) {
+            holder.tvStatus.setVisibility(View.VISIBLE);
+        } else {
+            holder.tvStatus.setVisibility(View.GONE);
+        }
         switch(item.getQty()) {
             case StateConsts.STOCK_QTY_FULL:
                 holder.tvStockStatus.setText("FULL");
@@ -87,6 +93,8 @@ public class AddStockAdapter extends RecyclerView.Adapter<AddStockAdapter.AddSto
 
         @Bind(R.id.tv_title_id)
         TextView tvTitleID;
+        @Bind(R.id.tv_status)
+        TextView tvStatus;
         @Bind(R.id.tv_stock)
         TextView tvStock;
         @Bind(R.id.tv_size)

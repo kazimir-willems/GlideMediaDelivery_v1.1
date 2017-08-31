@@ -44,6 +44,7 @@ public class RemoveStockAdapter extends RecyclerView.Adapter<RemoveStockAdapter.
         final RemoveStockItem item = items.get(position);
 
         holder.tvTitleID.setText("[" + item.getTitleID() + "]");
+        holder.tvSize.setText("[" + item.getSize() + "]");
         holder.tvTitle.setText(item.getTitle().replaceAll("&amp;", "&"));
         holder.tvTitle.setSelected(true);
         holder.tvRowNum.setText(String.valueOf(position + 1));
@@ -75,6 +76,8 @@ public class RemoveStockAdapter extends RecyclerView.Adapter<RemoveStockAdapter.
 
         @Bind(R.id.tv_title_id)
         TextView tvTitleID;
+        @Bind(R.id.tv_size)
+        TextView tvSize;
         @Bind(R.id.tv_title)
         TextView tvTitle;
         @Bind(R.id.tv_row_num)

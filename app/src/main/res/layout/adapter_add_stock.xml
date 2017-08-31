@@ -44,6 +44,16 @@
                         style="@style/TextDefault"/>
 
                     <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="NEW"
+                        style="@style/TextDefault"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorGreen"/>
+
+                    <TextView
                         android:id="@+id/tv_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

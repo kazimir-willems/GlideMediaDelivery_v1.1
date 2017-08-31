@@ -21,7 +21,14 @@ public class DownloadDespatchProxy extends BaseProxy {
     public DownloadDespatchResponseVo run() throws IOException {
         FormBody.Builder formBuilder = new FormBody.Builder();
 
-        formBuilder.add("staffID", DeliveryApplication.staffID);
+        JSONObject jsonRequest = new JSONObject();
+        try {
+            jsonRequest.put("staffID", DeliveryApplication.staffID);
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
+
+        formBuilder.add("data", jsonRequest.toString());
 
         RequestBody formBody = formBuilder.build();
 
