@@ -11,12 +11,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import delivery.com.consts.StateConsts;
+import delivery.com.db.ClockDB;
 import delivery.com.db.DespatchDB;
 import delivery.com.db.OutletDB;
 import delivery.com.db.StockDB;
 import delivery.com.db.TierDB;
 import delivery.com.event.DespatchStoreEvent;
 import delivery.com.event.MakeUploadDataEvent;
+import delivery.com.model.ClockItem;
 import delivery.com.model.DespatchItem;
 import delivery.com.model.OutletItem;
 import delivery.com.model.StockItem;
@@ -49,6 +51,7 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
             OutletDB outletDB = new OutletDB(ctx);
             TierDB tierDB = new TierDB(ctx);
             StockDB stockDB = new StockDB(ctx);
+            ClockDB clockDB = new ClockDB(ctx);
 
             ArrayList<DespatchItem> despatchItems = despatchDB.fetchCompletedDespatches();
             if(despatchItems.size() == 0)
@@ -125,6 +128,22 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
                 jsonDespatchArray.put(jsonDespatch);
             }
             allData.put("despatch", jsonDespatchArray);
+
+
+            ArrayList<ClockItem> clockItems = clockDB.fetchAll();
+
+            JSONArray jsonClockArray = new JSONArray();
+            for(int i = 0; i < clockItems.size(); i++) {
+                JSONObject jsonClockItem = new JSONObject();
+                ClockItem clockItem = clockItems.get(i);
+
+                jsonClockItem.put("staffID", clockItem.getStaffID());
+                jsonClockItem.put("timedatestamp", clockItem.getTimeStamp());
+                jsonClockItem.put("status", clockItem.getClockStatus());
+
+                jsonClockArray.put(jsonClockItem);
+            }
+            allData.put("clock", jsonClockArray);
 
             despatches = allData.toString();
 

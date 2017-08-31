@@ -88,6 +88,12 @@ public class StockFragment extends Fragment {
         String strTierSpace = String.format(getResources().getString(R.string.tier_space_format), tierspace);
         tvTierSpace.setText(strTierSpace);
 
+        for(int i = 0; i < items.size(); i++) {
+            if(items.get(i).getStatus().equals("New Stock")) {
+                updateStockQty(items.get(i));
+            }
+        }
+
         adapter.addItems(items);
         adapter.notifyDataSetChanged();
     }

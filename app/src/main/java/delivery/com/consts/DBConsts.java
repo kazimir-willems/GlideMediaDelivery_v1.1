@@ -51,4 +51,5 @@ public class DBConsts {
 
     public static final String FIELD_CLOCK_STATUS = "clock_status";
     public static final String FIELD_CLOCK_TIME = "clock_time";
+    public static final String FIELD_STAFF_ID= "staff_id";
 }

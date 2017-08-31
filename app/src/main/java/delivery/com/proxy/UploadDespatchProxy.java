@@ -20,7 +20,6 @@ public class UploadDespatchProxy extends BaseProxy {
         requestVo.data = despatches;
         FormBody.Builder formBuilder = new FormBody.Builder();
         formBuilder.add("data", requestVo.data);
-        formBuilder.add("passcode", DeliveryApplication.passcode);
 
         RequestBody formBody = formBuilder.build();
 

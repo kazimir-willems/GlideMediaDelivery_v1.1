@@ -5,12 +5,22 @@ package delivery.com.model;
  */
 
 public class ClockItem {
+    private String staffID;
     private String timeStamp;
     private String clockStatus;
 
     public ClockItem() {
+        staffID = "";
         timeStamp = "";
         clockStatus = "";
+    }
+
+    public void setStaffID(String value) {
+        this.staffID = value;
+    }
+
+    public String getStaffID() {
+        return  staffID;
     }
 
     public void setTimeStamp(String value) {

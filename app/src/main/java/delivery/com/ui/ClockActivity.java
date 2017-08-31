@@ -15,6 +15,7 @@ import butterknife.OnClick;
 import delivery.com.R;
 import delivery.com.adapter.ClockAdapter;
 import delivery.com.adapter.RemoveStockAdapter;
+import delivery.com.application.DeliveryApplication;
 import delivery.com.db.ClockDB;
 import delivery.com.db.RemoveStockDB;
 import delivery.com.model.ClockItem;
@@ -86,6 +87,7 @@ public class ClockActivity extends AppCompatActivity {
             task.execute(curTime, "clockON");
 
             ClockItem item = new ClockItem();
+            item.setStaffID(DeliveryApplication.staffID);
             item.setTimeStamp(curTime);
             item.setClockStatus("Clock ON");
 
@@ -99,6 +101,7 @@ public class ClockActivity extends AppCompatActivity {
             task.execute(curTime, "clockOFF");
 
             ClockItem item = new ClockItem();
+            item.setStaffID(DeliveryApplication.staffID);
             item.setTimeStamp(curTime);
             item.setClockStatus("Clock OFF");
 
@@ -122,6 +125,7 @@ public class ClockActivity extends AppCompatActivity {
             task.execute(curTime, "lunchON");
 
             ClockItem item = new ClockItem();
+            item.setStaffID(DeliveryApplication.staffID);
             item.setTimeStamp(curTime);
             item.setClockStatus("Lunch ON");
 
@@ -135,6 +139,7 @@ public class ClockActivity extends AppCompatActivity {
             task.execute(curTime, "lunchOFF");
 
             ClockItem item = new ClockItem();
+            item.setStaffID(DeliveryApplication.staffID);
             item.setTimeStamp(curTime);
             item.setClockStatus("Lunch OFF");
 

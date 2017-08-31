@@ -40,6 +40,8 @@
 
     <string name="msg_ask_remove_despatch">Are you sure you want to remove this despatch?</string>
     <string name="msg_ask_remove_datas">Are you sure you want to remove all datas?</string>
+    <string name="msg_passcode_incorrect">Passcode is incorrect</string>
+    <string name="msg_enter_the_passcode">Please enter the passcode.</string>
 
     <string name="hint_name">Name</string>
     <string name="hint_username">UserName</string>

@@ -73,6 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
     protected static String CLOCK_TABLE_CREATE_SQL =
             "CREATE TABLE IF NOT EXISTS " + DBConsts.TABLE_NAME_CLOCK + " (" +
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DBConsts.FIELD_STAFF_ID + " TEXT," +
                     DBConsts.FIELD_CLOCK_TIME + " TEXT," +
                     DBConsts.FIELD_CLOCK_STATUS + " TEXT);";
 
