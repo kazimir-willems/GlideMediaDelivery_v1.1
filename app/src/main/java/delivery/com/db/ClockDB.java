@@ -54,6 +54,18 @@ public class ClockDB extends DBHelper {
         return ret;
     }
 
+    public void removeAllDatas() {
+        try {
+            synchronized (DB_LOCK) {
+                SQLiteDatabase db = getReadableDatabase();
+                db.delete(DBConsts.TABLE_NAME_CLOCK, null, null);
+                db.close();
+            }
+        } catch (IllegalStateException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public long addClock(ClockItem bean) {
         long ret = -1;
         try {

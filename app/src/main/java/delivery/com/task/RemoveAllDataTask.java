@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import org.greenrobot.eventbus.EventBus;
 
+import delivery.com.db.ClockDB;
 import delivery.com.db.DespatchDB;
 import delivery.com.db.OutletDB;
 import delivery.com.db.RemoveStockDB;
@@ -41,6 +42,8 @@ public class RemoveAllDataTask extends AsyncTask<String, Void, Boolean> {
             despatchDB.removeAllDatas();
             RemoveStockDB removeStockDB = new RemoveStockDB(context);
             removeStockDB.removeAllDatas();
+            ClockDB clockDB = new ClockDB(context);
+            clockDB.removeAllDatas();
 
             return true;
         } catch (Exception e) {
