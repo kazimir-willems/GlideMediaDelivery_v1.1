@@ -84,6 +84,7 @@ public class OutletDB extends DBHelper {
             value.put(DBConsts.FIELD_DELIVERED, bean.getDelivered());
             value.put(DBConsts.FIELD_DELIVER_TIME, bean.getDeliveredTime());
             value.put(DBConsts.FIELD_TIERS, bean.getTiers());
+            value.put(DBConsts.FIELD_ORDER_TYPE, bean.getOrderType());
             value.put(DBConsts.FIELD_REASON, bean.getReason());
             synchronized (DB_LOCK) {
                 SQLiteDatabase db = getWritableDatabase();
@@ -153,8 +154,9 @@ public class OutletDB extends DBHelper {
                     COL_ADDRESS             = c.getColumnIndexOrThrow(DBConsts.FIELD_ADDRESS),
                     COL_SERVICE    	 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_SERVICE),
                     COL_DELIVERED 		    = c.getColumnIndexOrThrow(DBConsts.FIELD_DELIVERED),
-                    COL_DELIVER_TIME         = c.getColumnIndexOrThrow(DBConsts.FIELD_DELIVER_TIME),
+                    COL_DELIVER_TIME        = c.getColumnIndexOrThrow(DBConsts.FIELD_DELIVER_TIME),
                     COL_TIERS   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_TIERS),
+                    COL_ORDER_TYPE          = c.getColumnIndexOrThrow(DBConsts.FIELD_ORDER_TYPE),
                     COL_REASON    	 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_REASON);
 
             while (c.moveToNext()) {
@@ -167,6 +169,7 @@ public class OutletDB extends DBHelper {
                 bean.setDelivered(c.getInt(COL_DELIVERED));
                 bean.setDeliveredTime(c.getString(COL_DELIVER_TIME));
                 bean.setTiers(c.getInt(COL_TIERS));
+                bean.setOrderType(c.getInt(COL_ORDER_TYPE));
                 bean.setReason(c.getInt(COL_REASON));
                 ret.add(bean);
             }

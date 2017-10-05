@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.adapter.DespatchAdapter;
 import delivery.com.adapter.StockAdapter;
+import delivery.com.consts.StateConsts;
 import delivery.com.db.StockDB;
 import delivery.com.db.TierDB;
 import delivery.com.model.OutletItem;
@@ -66,6 +68,8 @@ public class StockFragment extends Fragment {
 
         getStocks();
 
+
+
         return v;
     }
 
@@ -100,5 +104,16 @@ public class StockFragment extends Fragment {
 
     public void updateStockQty(StockItem item) {
         ((StockActivity) getActivity()).addOperation(item);
+    }
+
+    public void performFull() {
+        for(int i = 0; i < adapter.getItemCount(); i++) {
+            if(adapter.getItem(i).getRemove().isEmpty()) {
+                adapter.getItem(i).setQty(StateConsts.STOCK_QTY_FULL);
+                updateStockQty(adapter.getItem(i));
+            }
+        }
+
+        adapter.notifyDataSetChanged();
     }
 }

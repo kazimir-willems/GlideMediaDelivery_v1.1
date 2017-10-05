@@ -6,7 +6,8 @@ package delivery.com.util;
 
 public class URLManager {
     public static String getDownloadDespatchURL() {
-        return "http://glideadmin.co.uk/json/delivery-download.php";
+        //return "http://glideadmin.co.uk/json/delivery-download.php";
+        return "http://glideadmin.co.uk/json/delivery-download-dev.php";
     }
 
     public static String getUploadDespatchURL() {
@@ -20,5 +21,9 @@ public class URLManager {
 
     public static String getClockURL() {
         return "http://www.glideadmin.co.uk/json/delivery-clock.php";
+    }
+
+    public static String getClockHistoryURL() {
+        return "http://www.glideadmin.co.uk/json/delivery-clock-history.php";
     }
 }

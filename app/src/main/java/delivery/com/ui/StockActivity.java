@@ -3,6 +3,7 @@ package delivery.com.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -142,6 +143,13 @@ public class StockActivity extends AppCompatActivity
         finish();
     }*/
 
+    @OnClick(R.id.btn_full)
+    void onClickBtnFull() {
+        for(int i = 0; i < fragments.length; i++) {
+            fragments[i].performFull();
+        }
+    }
+
     @OnClick(R.id.btn_complete)
     void onClickBtnComplete() {
 //        if(outletItem.getDelivered() == StateConsts.OUTLET_NOT_DELIVERED) {
@@ -174,9 +182,11 @@ public class StockActivity extends AppCompatActivity
         int pos = isExistingOperation(item);
         if(pos != -1) {
             tempOperationList.remove(pos);
-            tempOperationList.add(item);
+            if(item.getQty() != StateConsts.STOCK_QTY_NONE)
+                tempOperationList.add(item);
         } else {
-            tempOperationList.add(item);
+            if(item.getQty() != StateConsts.STOCK_QTY_NONE)
+                tempOperationList.add(item);
         }
     }
 

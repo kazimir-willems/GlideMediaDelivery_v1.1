@@ -222,6 +222,5 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
             btnNone.setTextColor(parent.getResources().getColor(R.color.colorBlack));
             btnMissing.setTextColor(parent.getResources().getColor(R.color.colorBlack));
         }
-
     }
 }

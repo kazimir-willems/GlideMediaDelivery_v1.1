@@ -20,6 +20,7 @@ public class OutletItem implements Serializable {
     private int tiers;
     private int reason;
     private int completed;
+    private int orderType;
 
     public OutletItem() {
         this.despatchId = "";
@@ -31,6 +32,7 @@ public class OutletItem implements Serializable {
         this.deliveredTime = "";
         this.tiers = 0;
         this.reason = 0;
+        this.orderType = 1;
         this.completed = StateConsts.OUTLET_NOT_DELIVERED;
     }
 
@@ -112,6 +114,14 @@ public class OutletItem implements Serializable {
 
     public int getCompleted() {
         return completed;
+    }
+
+    public void setOrderType(int value) {
+        this.orderType = value;
+    }
+
+    public int getOrderType() {
+        return orderType;
     }
 
 }

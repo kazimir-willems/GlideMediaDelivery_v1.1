@@ -32,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_DELIVERED + " INTEGER," +
                     DBConsts.FIELD_DELIVER_TIME + " TEXT," +
                     DBConsts.FIELD_TIERS + " INTEGER," +
+                    DBConsts.FIELD_ORDER_TYPE + " INTEGER," +
                     DBConsts.FIELD_REASON + " INTEGER);";
 
     protected static String TIER_TABLE_CREATE_SQL =

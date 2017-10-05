@@ -57,15 +57,25 @@ public class OutletAdapter extends RecyclerView.Adapter<OutletAdapter.OutletView
         holder.setIcon(item.getDelivered());
         holder.setTVColor(item.getDelivered());
 
+        if(item.getOrderType() == 1) {
+            holder.btnViewCrate.setText(parent.getResources().getString(R.string.view_crate));
+        } else {
+            holder.btnViewCrate.setText(parent.getResources().getString(R.string.delivered));
+        }
+
         holder.btnViewCrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(parent, RemoveStockActivity.class);
+                if(item.getOrderType() == 1) {
+                    Intent intent = new Intent(parent, RemoveStockActivity.class);
 
-                intent.putExtra("outlet", item);
-                intent.putExtra("despatch", parent.despatchItem);
+                    intent.putExtra("outlet", item);
+                    intent.putExtra("despatch", parent.despatchItem);
 
-                parent.startActivity(intent);
+                    parent.startActivity(intent);
+                } else {
+                    parent.onClickBtnDelivered(item);
+                }
             }
         });
 

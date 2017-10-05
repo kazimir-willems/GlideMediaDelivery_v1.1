@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             if(responseVo.status.equals("success")) {
                 String access = responseVo.access;
                 DeliveryApplication.staffID = responseVo.staffID;
+                Log.v("StaffID", DeliveryApplication.staffID);
                 DeliveryApplication.passcode = responseVo.passcode;
                 startHomeActivity();
             } else {

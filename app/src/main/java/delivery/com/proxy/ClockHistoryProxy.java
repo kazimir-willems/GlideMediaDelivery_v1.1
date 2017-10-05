@@ -4,28 +4,29 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 
 import delivery.com.application.DeliveryApplication;
+import delivery.com.util.SharedPrefManager;
 import delivery.com.util.URLManager;
-import delivery.com.vo.ClockResponseVo;
+import delivery.com.vo.ClockHistoryRequestVo;
+import delivery.com.vo.ClockHistoryResponseVo;
 import delivery.com.vo.LoginRequestVo;
 import delivery.com.vo.LoginResponseVo;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
-public class ClockProxy extends BaseProxy {
+public class ClockHistoryProxy extends BaseProxy {
 
-    public ClockResponseVo run(String timestamp, String clockStatus) throws IOException {
+    public ClockHistoryResponseVo run() throws IOException {
 
         JSONObject json = new JSONObject();
         try {
             json.put("staffID", DeliveryApplication.staffID);
-            json.put("timedatestamp", timestamp);
-            json.put("status", clockStatus);
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
@@ -35,11 +36,17 @@ public class ClockProxy extends BaseProxy {
 
         RequestBody formBody = formBuilder.build();
 
-        String contentString = postPlain(URLManager.getClockURL(), formBody);
+        String contentString = postPlain(URLManager.getClockHistoryURL(), formBody);
+        Log.v("contentString", contentString);
 
-        Log.v("Clock Post", contentString);
+        ClockHistoryResponseVo responseVo = new ClockHistoryResponseVo();
 
-        ClockResponseVo responseVo = new Gson().fromJson(contentString, ClockResponseVo.class);
+        try {
+            JSONObject jsonResponse = new JSONObject(contentString);
+            responseVo.clockHistory = jsonResponse.getString("history");
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
 
         return responseVo;
     }

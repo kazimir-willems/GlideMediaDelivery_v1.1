@@ -30,6 +30,7 @@ public class DBConsts {
     public static final String FIELD_DELIVERED = "delivered";
     public static final String FIELD_TIERS = "tiers";
     public static final String FIELD_REASON = "reason";
+    public static final String FIELD_ORDER_TYPE = "order_type";
 
     public static final String FIELD_TIER_NO = "tier_no";
     public static final String FIELD_TIER_SPACE = "tier_space";

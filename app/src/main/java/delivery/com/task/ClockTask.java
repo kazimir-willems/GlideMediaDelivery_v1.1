@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 
 import org.greenrobot.eventbus.EventBus;
 
+import delivery.com.event.ClockEvent;
+import delivery.com.event.ClockHistoryEvent;
 import delivery.com.event.LoginEvent;
 import delivery.com.proxy.ClockProxy;
 import delivery.com.proxy.LoginProxy;
@@ -37,6 +39,6 @@ public class ClockTask extends AsyncTask<String, Void, ClockResponseVo> {
 
     @Override
     protected void onPostExecute(ClockResponseVo responseVo) {
-
+        EventBus.getDefault().post(new ClockEvent(responseVo));
     }
 }

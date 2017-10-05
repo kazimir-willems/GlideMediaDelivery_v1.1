@@ -1,8 +1,10 @@
 package delivery.com.ui;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -23,11 +25,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.adapter.OutletAdapter;
+import delivery.com.consts.StateConsts;
 import delivery.com.db.OutletDB;
 import delivery.com.fragment.DespatchFragment;
 import delivery.com.fragment.HomeFragment;
 import delivery.com.model.DespatchItem;
 import delivery.com.model.OutletItem;
+import delivery.com.util.DateUtil;
 
 public class OutletActivity extends AppCompatActivity {
 
@@ -98,5 +102,29 @@ public class OutletActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickBtnDelivered(final OutletItem item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(OutletActivity.this);
+        builder.setTitle(getString(R.string.app_name));
+        builder.setMessage(getString(R.string.success));
+        builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                item.setDelivered(StateConsts.OUTLET_DELIVERED);
+                item.setDeliveredTime(DateUtil.getCurDateTime());
+
+                OutletDB outletDB = new OutletDB(OutletActivity.this);
+                outletDB.updateOutlet(item);
+
+                getOutlets();
+            }
+        });
+        builder.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).create().show();
     }
 }
