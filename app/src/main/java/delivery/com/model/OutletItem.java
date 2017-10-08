@@ -21,6 +21,7 @@ public class OutletItem implements Serializable {
     private int reason;
     private int completed;
     private int orderType;
+    private String orderTypeDisplay;
 
     public OutletItem() {
         this.despatchId = "";
@@ -122,6 +123,14 @@ public class OutletItem implements Serializable {
 
     public int getOrderType() {
         return orderType;
+    }
+
+    public void setOrderTypeDisplay(String value) {
+        this.orderTypeDisplay = value;
+    }
+
+    public String getOrderTypeDisplay() {
+        return orderTypeDisplay;
     }
 
 }

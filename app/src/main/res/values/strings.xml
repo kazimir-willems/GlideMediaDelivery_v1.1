@@ -14,7 +14,7 @@
     <string name="remove_success">Despatches Successfully Removed.</string>
     <string name="remove_failed">Remove Failed.</string>
     <string name="view_crate">VIEW CRATE</string>
-    <string name="delivered">Delivered</string>
+    <string name="delivered">Complete</string>
     <string name="cannot_deliver">CANNOT DELIVER</string>
     <string name="network_error">Network Error</string>
     <string name="processing">Processing...</string>

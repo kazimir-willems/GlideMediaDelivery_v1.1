@@ -46,7 +46,7 @@ public class OutletAdapter extends RecyclerView.Adapter<OutletAdapter.OutletView
 
         holder.tvOutlet.setText(item.getOutlet());
         holder.tvOutletID.setText("[" + item.getOutletId() + "]");
-        holder.tvService.setText(item.getServiceType());
+        holder.tvService.setText(item.getServiceType() + "-" + item.getOrderTypeDisplay());
         holder.tvAddress.setText(item.getAddress());
 
         holder.tvOutlet.setSelected(true);
