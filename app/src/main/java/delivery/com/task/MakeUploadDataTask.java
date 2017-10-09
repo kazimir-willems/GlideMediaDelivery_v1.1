@@ -78,11 +78,13 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
                     jsonOutlet.put("outlet", outletItem.getOutlet());
                     jsonOutlet.put("address", outletItem.getAddress());
                     jsonOutlet.put("service", outletItem.getServiceType());
+                    jsonOutlet.put("serviceID", outletItem.getServiceId());
                     jsonOutlet.put("delivered", outletItem.getDelivered());
                     jsonOutlet.put("deliveredtime", outletItem.getDeliveredTime());
                     jsonOutlet.put("reason", outletItem.getReason());
                     jsonOutlet.put("tierstotal", outletItem.getTiers());
                     jsonOutlet.put("orderType", outletItem.getOrderType());
+                    jsonOutlet.put("orderTypeDisplay", outletItem.getOrderTypeDisplay());
 
                     int tierstotal = outletItem.getTiers();
                     JSONArray jsonTierArray = new JSONArray();

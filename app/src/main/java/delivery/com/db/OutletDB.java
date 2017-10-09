@@ -81,6 +81,7 @@ public class OutletDB extends DBHelper {
             value.put(DBConsts.FIELD_OUTLET, bean.getOutlet());
             value.put(DBConsts.FIELD_ADDRESS, bean.getAddress());
             value.put(DBConsts.FIELD_SERVICE, bean.getServiceType());
+            value.put(DBConsts.FIELD_SERVICE_ID, bean.getServiceId());
             value.put(DBConsts.FIELD_DELIVERED, bean.getDelivered());
             value.put(DBConsts.FIELD_DELIVER_TIME, bean.getDeliveredTime());
             value.put(DBConsts.FIELD_TIERS, bean.getTiers());
@@ -154,6 +155,7 @@ public class OutletDB extends DBHelper {
                     COL_OUTLET   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET),
                     COL_ADDRESS             = c.getColumnIndexOrThrow(DBConsts.FIELD_ADDRESS),
                     COL_SERVICE    	 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_SERVICE),
+                    COL_SERVICE_ID          = c.getColumnIndexOrThrow(DBConsts.FIELD_SERVICE_ID),
                     COL_DELIVERED 		    = c.getColumnIndexOrThrow(DBConsts.FIELD_DELIVERED),
                     COL_DELIVER_TIME        = c.getColumnIndexOrThrow(DBConsts.FIELD_DELIVER_TIME),
                     COL_TIERS   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_TIERS),
@@ -168,6 +170,7 @@ public class OutletDB extends DBHelper {
                 bean.setOutlet(c.getString(COL_OUTLET));
                 bean.setAddress(c.getString(COL_ADDRESS));
                 bean.setServiceType(c.getString(COL_SERVICE));
+                bean.setServiceId(c.getInt(COL_SERVICE_ID));
                 bean.setDelivered(c.getInt(COL_DELIVERED));
                 bean.setDeliveredTime(c.getString(COL_DELIVER_TIME));
                 bean.setTiers(c.getInt(COL_TIERS));

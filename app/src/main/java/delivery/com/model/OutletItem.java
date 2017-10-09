@@ -15,6 +15,7 @@ public class OutletItem implements Serializable {
     private String outlet;
     private String address;
     private String serviceType;
+    private int serviceId;
     private int delivered;
     private String deliveredTime;
     private int tiers;
@@ -29,11 +30,13 @@ public class OutletItem implements Serializable {
         this.outlet = "";
         this.address = "";
         this.serviceType = "";
+        this.serviceId = 0;
         this.delivered = 0;
         this.deliveredTime = "";
         this.tiers = 0;
         this.reason = 0;
         this.orderType = 1;
+        this.orderTypeDisplay = "";
         this.completed = StateConsts.OUTLET_NOT_DELIVERED;
     }
 
@@ -75,6 +78,14 @@ public class OutletItem implements Serializable {
 
     public String getServiceType() {
         return serviceType;
+    }
+
+    public void setServiceId(int value) {
+        this.serviceId = value;
+    }
+
+    public int getServiceId() {
+        return serviceId;
     }
 
     public void setDelivered(int value) {

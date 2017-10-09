@@ -29,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_OUTLET + " TEXT," +
                     DBConsts.FIELD_ADDRESS + " TEXT," +
                     DBConsts.FIELD_SERVICE + " TEXT," +
+                    DBConsts.FIELD_SERVICE_ID + " INTEGER," +
                     DBConsts.FIELD_DELIVERED + " INTEGER," +
                     DBConsts.FIELD_DELIVER_TIME + " TEXT," +
                     DBConsts.FIELD_TIERS + " INTEGER," +

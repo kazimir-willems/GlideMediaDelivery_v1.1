@@ -26,6 +26,7 @@ public class DBConsts {
     public static final String FIELD_OUTLET = "outlet";
     public static final String FIELD_ADDRESS = "address";
     public static final String FIELD_SERVICE = "service";
+    public static final String FIELD_SERVICE_ID = "service_id";
     public static final String FIELD_DELIVER_TIME = "deliver_time";
     public static final String FIELD_DELIVERED = "delivered";
     public static final String FIELD_TIERS = "tiers";
