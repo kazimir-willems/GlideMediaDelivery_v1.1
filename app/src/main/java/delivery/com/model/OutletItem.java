@@ -12,6 +12,7 @@ import delivery.com.consts.StateConsts;
 public class OutletItem implements Serializable {
     private String despatchId;
     private String outletId;
+    private String orderId;
     private String outlet;
     private String address;
     private String serviceType;
@@ -27,6 +28,7 @@ public class OutletItem implements Serializable {
     public OutletItem() {
         this.despatchId = "";
         this.outletId = "";
+        this.orderId = "";
         this.outlet = "";
         this.address = "";
         this.serviceType = "";
@@ -54,6 +56,14 @@ public class OutletItem implements Serializable {
 
     public String getOutletId() {
         return outletId;
+    }
+
+    public void setOrderid(String value) {
+        this.orderId = value;
+    }
+
+    public String getOrderId() {
+        return orderId;
     }
 
     public void setOutlet(String value) {

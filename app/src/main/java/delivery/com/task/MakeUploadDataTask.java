@@ -75,6 +75,7 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
 
                     JSONObject jsonOutlet = new JSONObject();
                     jsonOutlet.put("outletID", outletItem.getOutletId());
+                    jsonOutlet.put("orderID", outletItem.getOrderId());
                     jsonOutlet.put("outlet", outletItem.getOutlet());
                     jsonOutlet.put("address", outletItem.getAddress());
                     jsonOutlet.put("service", outletItem.getServiceType());

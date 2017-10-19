@@ -79,6 +79,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
                         String outletID = jsonOutletItem.getString("outletID");
                         outletItem.setDespatchId(despatchID);
                         outletItem.setOutletId(outletID);
+                        outletItem.setOrderid(jsonOutletItem.getString("orderID"));
                         outletItem.setOutlet(jsonOutletItem.getString("outlet"));
                         outletItem.setAddress(jsonOutletItem.getString("address"));
                         outletItem.setServiceType(jsonOutletItem.getString("service"));

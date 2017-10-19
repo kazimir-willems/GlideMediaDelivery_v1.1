@@ -78,6 +78,7 @@ public class OutletDB extends DBHelper {
             ContentValues value = new ContentValues();
             value.put(DBConsts.FIELD_DESPATCH_ID, bean.getDespatchId());
             value.put(DBConsts.FIELD_OUTLET_ID, bean.getOutletId());
+            value.put(DBConsts.FIELD_ORDER_ID, bean.getOrderId());
             value.put(DBConsts.FIELD_OUTLET, bean.getOutlet());
             value.put(DBConsts.FIELD_ADDRESS, bean.getAddress());
             value.put(DBConsts.FIELD_SERVICE, bean.getServiceType());
@@ -102,7 +103,7 @@ public class OutletDB extends DBHelper {
 
     public void updateOutlet(OutletItem item) {
         try {
-            String szWhere = DBConsts.FIELD_OUTLET_ID + " = '" + item.getOutletId() + "'";
+            String szWhere = DBConsts.FIELD_ORDER_ID + " = '" + item.getOrderId() + "'";
             ContentValues value = new ContentValues();
             value.put(DBConsts.FIELD_REASON, item.getReason());
             value.put(DBConsts.FIELD_DELIVERED, item.getDelivered());
@@ -152,6 +153,7 @@ public class OutletDB extends DBHelper {
             final int COL_ID	            = c.getColumnIndexOrThrow(DBConsts.FIELD_ID),
                     COL_DESPATCH_ID 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_DESPATCH_ID),
                     COL_OUTLET_ID         	= c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET_ID),
+                    COL_ORDER_ID            = c.getColumnIndexOrThrow(DBConsts.FIELD_ORDER_ID),
                     COL_OUTLET   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET),
                     COL_ADDRESS             = c.getColumnIndexOrThrow(DBConsts.FIELD_ADDRESS),
                     COL_SERVICE    	 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_SERVICE),
@@ -167,6 +169,7 @@ public class OutletDB extends DBHelper {
                 OutletItem bean = new OutletItem();
                 bean.setDespatchId(c.getString(COL_DESPATCH_ID));
                 bean.setOutletId(c.getString(COL_OUTLET_ID));
+                bean.setOrderid(c.getString(COL_ORDER_ID));
                 bean.setOutlet(c.getString(COL_OUTLET));
                 bean.setAddress(c.getString(COL_ADDRESS));
                 bean.setServiceType(c.getString(COL_SERVICE));

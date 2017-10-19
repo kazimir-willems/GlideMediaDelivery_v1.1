@@ -26,6 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     DBConsts.FIELD_DESPATCH_ID + " TEXT," +
                     DBConsts.FIELD_OUTLET_ID + " TEXT," +
+                    DBConsts.FIELD_ORDER_ID + " TEXT," +
                     DBConsts.FIELD_OUTLET + " TEXT," +
                     DBConsts.FIELD_ADDRESS + " TEXT," +
                     DBConsts.FIELD_SERVICE + " TEXT," +

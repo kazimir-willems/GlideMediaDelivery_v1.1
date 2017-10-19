@@ -23,6 +23,7 @@ public class DBConsts {
     public static final String FIELD_COMPLETED = "completed";
 
     public static final String FIELD_OUTLET_ID = "outlet_id";
+    public static final String FIELD_ORDER_ID = "order_id";
     public static final String FIELD_OUTLET = "outlet";
     public static final String FIELD_ADDRESS = "address";
     public static final String FIELD_SERVICE = "service";
