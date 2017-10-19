@@ -36,10 +36,10 @@ public class RemoveStockDB extends DBHelper {
         return ret;
     }
 
-    public ArrayList<RemoveStockItem> fetchRemoveStocks(String despatchID, String outletID) {
+    public ArrayList<RemoveStockItem> fetchRemoveStocks(String despatchID, String outletID, String orderID) {
         ArrayList<RemoveStockItem> ret = null;
         try {
-            String szWhere = DBConsts.FIELD_DESPATCH_ID + " = '" + despatchID + "' AND " + DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "'";
+            String szWhere = DBConsts.FIELD_DESPATCH_ID + " = '" + despatchID + "' AND " + DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "'" + " AND " + DBConsts.FIELD_ORDER_ID + " = '" + orderID + "'";
             synchronized (DB_LOCK) {
                 SQLiteDatabase db = getReadableDatabase();
                 Cursor cursor = db.query(DBConsts.TABLE_NAME_REMOVE_STOCK, null, szWhere, null, null, null, "size DESC, title_id DESC");
@@ -59,6 +59,7 @@ public class RemoveStockDB extends DBHelper {
             ContentValues value = new ContentValues();
             value.put(DBConsts.FIELD_DESPATCH_ID, bean.getDespatchID());
             value.put(DBConsts.FIELD_OUTLET_ID, bean.getOutletID());
+            value.put(DBConsts.FIELD_ORDER_ID, bean.getOrderID());
             value.put(DBConsts.FIELD_SIZE, bean.getSize());
             value.put(DBConsts.FIELD_TITLE_ID, bean.getTitleID());
             value.put(DBConsts.FIELD_TITLE, bean.getTitle());
@@ -108,6 +109,7 @@ public class RemoveStockDB extends DBHelper {
             final int COL_ID	            = c.getColumnIndexOrThrow(DBConsts.FIELD_ID),
                     COL_DESPATCH_ID 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_DESPATCH_ID),
                     COL_OUTLET_ID         	= c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET_ID),
+                    COL_ORDER_ID            = c.getColumnIndexOrThrow(DBConsts.FIELD_ORDER_ID),
                     COL_SIZE                = c.getColumnIndexOrThrow(DBConsts.FIELD_SIZE),
                     COL_TITLE_ID   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_TITLE_ID),
                     COL_TITLE               = c.getColumnIndexOrThrow(DBConsts.FIELD_TITLE);
@@ -116,6 +118,7 @@ public class RemoveStockDB extends DBHelper {
                 RemoveStockItem bean = new RemoveStockItem();
                 bean.setDespatchID(c.getString(COL_DESPATCH_ID));
                 bean.setOutletID(c.getString(COL_OUTLET_ID));
+                bean.setOrderID(c.getString(COL_ORDER_ID));
                 bean.setSize(c.getString(COL_SIZE));
                 bean.setTitleID(c.getString(COL_TITLE_ID));
                 bean.setTitle(c.getString(COL_TITLE));

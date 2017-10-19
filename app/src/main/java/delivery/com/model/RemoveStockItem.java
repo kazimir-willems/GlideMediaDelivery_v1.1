@@ -7,6 +7,7 @@ package delivery.com.model;
 public class RemoveStockItem {
     private String despatchID;
     private String outletID;
+    private String orderID;
     private String size;
     private String titleID;
     private String title;
@@ -14,6 +15,7 @@ public class RemoveStockItem {
     public RemoveStockItem() {
         despatchID = "";
         outletID = "";
+        orderID = "";
         size = "";
         title = "";
         titleID = "";
@@ -33,6 +35,14 @@ public class RemoveStockItem {
 
     public String getOutletID() {
         return outletID;
+    }
+
+    public void setOrderID(String value) {
+        this.orderID = "";
+    }
+
+    public String getOrderID() {
+        return orderID;
     }
 
     public void setSize(String value) {

@@ -77,9 +77,10 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
 
                         OutletItem outletItem = new OutletItem();
                         String outletID = jsonOutletItem.getString("outletID");
+                        String orderID = jsonOutletItem.getString("orderID");
                         outletItem.setDespatchId(despatchID);
                         outletItem.setOutletId(outletID);
-                        outletItem.setOrderid(jsonOutletItem.getString("orderID"));
+                        outletItem.setOrderid(orderID);
                         outletItem.setOutlet(jsonOutletItem.getString("outlet"));
                         outletItem.setAddress(jsonOutletItem.getString("address"));
                         outletItem.setServiceType(jsonOutletItem.getString("service"));
@@ -103,6 +104,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
                             RemoveStockItem removeStockItem = new RemoveStockItem();
                             removeStockItem.setDespatchID(despatchID);
                             removeStockItem.setOutletID(outletID);
+                            removeStockItem.setOrderID(orderID);
                             removeStockItem.setTitleID(jsonRemoveStockItem.getString("titleID"));
                             removeStockItem.setTitle(jsonRemoveStockItem.getString("title"));
                             removeStockItem.setSize(jsonRemoveStockItem.getString("size"));
@@ -121,6 +123,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
 
                             tierItem.setDespatchID(despatchID);
                             tierItem.setOutletID(outletID);
+                            tierItem.setOrderID(orderID);
                             tierItem.setTierNo(tierNo);
                             tierItem.setTierspace(jsonTierItem.getString("tierspace"));
                             tierItem.setSlots(jsonTierItem.getInt("slots"));
@@ -136,6 +139,7 @@ public class DespatchStoreTask extends AsyncTask<String, Void, Integer> {
 
                                 stockItem.setDespatchID(despatchID);
                                 stockItem.setOutletID(outletID);
+                                stockItem.setOrderID(orderID);
                                 stockItem.setStock(jsonStockItem.getString("stock"));
                                 stockItem.setTitleID(jsonStockItem.getString("titleID"));
                                 stockItem.setStockId(jsonStockItem.getString("stockID"));

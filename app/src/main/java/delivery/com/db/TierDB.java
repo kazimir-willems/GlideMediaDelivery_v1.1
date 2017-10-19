@@ -19,10 +19,10 @@ public class TierDB extends DBHelper {
         super(context);
     }
 
-    public ArrayList<TierItem> fetchAllTiersByOutletID(String outletID, String tierno) {
+    public ArrayList<TierItem> fetchAllTiersByOutletID(String outletID, String tierno, String orderID) {
         ArrayList<TierItem> ret = null;
         try {
-            String szWhere = DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "' AND " + DBConsts.FIELD_TIER_NO + " = '" + tierno + "'";
+            String szWhere = DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "' AND " + DBConsts.FIELD_TIER_NO + " = '" + tierno + "' AND " + DBConsts.FIELD_ORDER_ID + " = '" + orderID + "'";
             String szOrderBy = DBConsts.FIELD_TIER_ORDER + " ASC";
             synchronized (DB_LOCK) {
                 SQLiteDatabase db = getReadableDatabase();
@@ -37,10 +37,10 @@ public class TierDB extends DBHelper {
         return ret;
     }
 
-    public ArrayList<TierItem> fetchTiers(String despatchID, String outletID) {
+    public ArrayList<TierItem> fetchTiers(String despatchID, String outletID, String orderID) {
         ArrayList<TierItem> ret = null;
         try {
-            String szWhere = DBConsts.FIELD_DESPATCH_ID + " = '" + despatchID + "' AND " + DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "'";
+            String szWhere = DBConsts.FIELD_DESPATCH_ID + " = '" + despatchID + "' AND " + DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "' AND " + DBConsts.FIELD_ORDER_ID + "= '" + orderID + "'";
             String szOrderBy = DBConsts.FIELD_TIER_ORDER + " ASC";
             synchronized (DB_LOCK) {
                 SQLiteDatabase db = getReadableDatabase();
@@ -61,6 +61,7 @@ public class TierDB extends DBHelper {
             ContentValues value = new ContentValues();
             value.put(DBConsts.FIELD_DESPATCH_ID, bean.getDespatchID());
             value.put(DBConsts.FIELD_OUTLET_ID, bean.getOutletID());
+            value.put(DBConsts.FIELD_ORDER_ID, bean.getOrderID());
             value.put(DBConsts.FIELD_TIER_NO, bean.getTierNo());
             value.put(DBConsts.FIELD_TIER_SPACE, bean.getTierspace());
             value.put(DBConsts.FIELD_SLOTS, bean.getSlots());
@@ -111,6 +112,7 @@ public class TierDB extends DBHelper {
             final int COL_ID	            = c.getColumnIndexOrThrow(DBConsts.FIELD_ID),
                     COL_DESPATCH_ID 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_DESPATCH_ID),
                     COL_OUTLET_ID         	= c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET_ID),
+                    COL_ORDER_ID            = c.getColumnIndexOrThrow(DBConsts.FIELD_ORDER_ID),
                     COL_TIER_NO   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_TIER_NO),
                     COL_TIER_SPACE          = c.getColumnIndexOrThrow(DBConsts.FIELD_TIER_SPACE),
                     COL_TIER_ORDER          = c.getColumnIndexOrThrow(DBConsts.FIELD_TIER_ORDER),
@@ -120,6 +122,7 @@ public class TierDB extends DBHelper {
                 TierItem bean = new TierItem();
                 bean.setDespatchID(c.getString(COL_DESPATCH_ID));
                 bean.setOutletID(c.getString(COL_OUTLET_ID));
+                bean.setOrderID(c.getString(COL_ORDER_ID));
                 bean.setTierNo(c.getString(COL_TIER_NO));
                 bean.setTierspace(c.getString(COL_TIER_SPACE));
                 bean.setSlots(c.getInt(COL_SLOTS));

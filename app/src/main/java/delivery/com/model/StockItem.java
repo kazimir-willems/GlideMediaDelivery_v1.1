@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class StockItem implements Serializable {
     private String despatchID;
     private String outletID;
+    private String orderID;
     private String stockId;
     private String stock;
     private String tier;
@@ -24,6 +25,7 @@ public class StockItem implements Serializable {
     public StockItem() {
         despatchID = "";
         outletID = "";
+        orderID = "";
         stockId = "";
         stock = "";
         tier = "";
@@ -51,6 +53,14 @@ public class StockItem implements Serializable {
 
     public String getOutletID() {
         return outletID;
+    }
+
+    public void setOrderID(String value) {
+        this.orderID = value;
+    }
+
+    public String getOrderID() {
+        return orderID;
     }
 
     public void setStockId(String value) {

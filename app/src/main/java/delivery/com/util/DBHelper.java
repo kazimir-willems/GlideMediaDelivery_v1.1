@@ -43,6 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     DBConsts.FIELD_DESPATCH_ID + " TEXT," +
                     DBConsts.FIELD_OUTLET_ID + " TEXT," +
+                    DBConsts.FIELD_ORDER_ID + " TEXT," +
                     DBConsts.FIELD_TIER_NO + " TEXT," +
                     DBConsts.FIELD_TIER_ORDER + " INTEGER," +
                     DBConsts.FIELD_SLOTS + " INTEGER," +
@@ -53,6 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     DBConsts.FIELD_DESPATCH_ID + " TEXT," +
                     DBConsts.FIELD_OUTLET_ID + " TEXT," +
+                    DBConsts.FIELD_ORDER_ID + " TEXT," +
                     DBConsts.FIELD_SIZE + " TEXT," +
                     DBConsts.FIELD_TITLE_ID + " TEXT," +
                     DBConsts.FIELD_TITLE + " TEXT);";
@@ -62,6 +64,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBConsts.FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     DBConsts.FIELD_DESPATCH_ID + " TEXT," +
                     DBConsts.FIELD_OUTLET_ID + " TEXT," +
+                    DBConsts.FIELD_ORDER_ID + " TEXT," +
                     DBConsts.FIELD_STOCK_ID + " TEXT," +
                     DBConsts.FIELD_STOCK + " TEXT," +
                     DBConsts.FIELD_TIER  + " TEXT," +

@@ -90,7 +90,7 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
                     int tierstotal = outletItem.getTiers();
                     JSONArray jsonTierArray = new JSONArray();
                     for(int u = 0; u < tierstotal; u++) {
-                        ArrayList<TierItem> tierItems = tierDB.fetchAllTiersByOutletID(outletItem.getOutletId(), String.valueOf(u));
+                        ArrayList<TierItem> tierItems = tierDB.fetchAllTiersByOutletID(outletItem.getOutletId(), String.valueOf(u), outletItem.getOrderId());
 
 
                         for (int t = 0; t < tierItems.size(); t++) {
@@ -101,7 +101,7 @@ public class MakeUploadDataTask extends AsyncTask<Void, Void, String> {
                             jsonTier.put("tierOrder", tierItem.getTierOrder());
                             jsonTier.put("tierspace", tierItem.getTierspace());
                             JSONArray jsonStockArray = new JSONArray();
-                            ArrayList<StockItem> stockItems = stockDB.fetchStocksByOutletID(outletItem.getOutletId(), String.valueOf(u));
+                            ArrayList<StockItem> stockItems = stockDB.fetchStocksByOutletID(outletItem.getOutletId(), String.valueOf(u), outletItem.getOrderId());
                             for (int k = 0; k < stockItems.size(); k++) {
                                 StockItem item = stockItems.get(k);
 

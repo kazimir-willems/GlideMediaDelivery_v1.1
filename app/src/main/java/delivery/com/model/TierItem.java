@@ -7,6 +7,7 @@ package delivery.com.model;
 public class TierItem {
     private String despatchID;
     private String outletID;
+    private String orderID;
     private String tierNo;
     private String tierspace;
     private int tierOrder;
@@ -15,6 +16,7 @@ public class TierItem {
     public TierItem() {
         despatchID = "";
         outletID = "";
+        orderID = "";
         tierNo= "";
         tierspace = "";
         tierOrder = 0;
@@ -34,6 +36,14 @@ public class TierItem {
 
     public String getOutletID() {
         return outletID;
+    }
+
+    public void setOrderID(String value) {
+        this.orderID = value;
+    }
+
+    public String getOrderID() {
+        return orderID;
     }
 
     public void setTierNo(String value) {

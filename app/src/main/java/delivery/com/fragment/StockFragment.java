@@ -83,8 +83,8 @@ public class StockFragment extends Fragment {
     private void getStocks() {
         StockDB db = new StockDB(getActivity());
         TierDB tierDB = new TierDB(getActivity());
-        ArrayList<StockItem> items = db.fetchStocksByOutletID(outletItem.getOutletId(), tier);
-        ArrayList<TierItem> tierItems = tierDB.fetchAllTiersByOutletID(outletItem.getOutletId(), tier);
+        ArrayList<StockItem> items = db.fetchStocksByOutletID(outletItem.getOutletId(), tier, outletItem.getOrderId());
+        ArrayList<TierItem> tierItems = tierDB.fetchAllTiersByOutletID(outletItem.getOutletId(), tier, outletItem.getOrderId());
         if(tierItems != null) {
             tierspace = tierItems.get(0).getTierspace();
         }

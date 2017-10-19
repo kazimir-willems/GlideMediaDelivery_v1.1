@@ -90,7 +90,7 @@ public class StockActivity extends AppCompatActivity
         }*/
 
         TierDB tierDB = new TierDB(this);
-        ArrayList<TierItem> tierItems = tierDB.fetchTiers(outletItem.getDespatchId(), outletItem.getOutletId());
+        ArrayList<TierItem> tierItems = tierDB.fetchTiers(outletItem.getDespatchId(), outletItem.getOutletId(), outletItem.getOrderId());
 
         fragments = new StockFragment[tiers];
         for(int i = 0; i < tierItems.size(); i++) {

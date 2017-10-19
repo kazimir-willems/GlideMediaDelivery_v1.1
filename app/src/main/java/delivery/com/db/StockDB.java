@@ -18,10 +18,10 @@ public class StockDB extends DBHelper {
         super(context);
     }
 
-    public ArrayList<StockItem> fetchStocksByOutletID(String outletID, String tier) {
+    public ArrayList<StockItem> fetchStocksByOutletID(String outletID, String tier, String orderID) {
         ArrayList<StockItem> ret = null;
         try {
-            String szWhere = DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "' AND " + DBConsts.FIELD_TIER + " = '" + tier + "'";
+            String szWhere = DBConsts.FIELD_OUTLET_ID + " = '" + outletID + "' AND " + DBConsts.FIELD_TIER + " = '" + tier + "' AND " + DBConsts.FIELD_ORDER_ID + " = '" + orderID + "'";
             String szOrderBy = DBConsts.FIELD_SLOT_ORDER + " ASC";
             synchronized (DB_LOCK) {
                 SQLiteDatabase db = getReadableDatabase();
@@ -42,6 +42,7 @@ public class StockDB extends DBHelper {
             ContentValues value = new ContentValues();
             value.put(DBConsts.FIELD_DESPATCH_ID, bean.getDespatchID());
             value.put(DBConsts.FIELD_OUTLET_ID, bean.getOutletID());
+            value.put(DBConsts.FIELD_ORDER_ID, bean.getOrderID());
             value.put(DBConsts.FIELD_STOCK_ID, bean.getStockId());
             value.put(DBConsts.FIELD_STOCK, bean.getStock());
             value.put(DBConsts.FIELD_TIER, bean.getTier());
@@ -115,6 +116,7 @@ public class StockDB extends DBHelper {
             final int COL_ID	            = c.getColumnIndexOrThrow(DBConsts.FIELD_ID),
                     COL_DESPATCH_ID 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_DESPATCH_ID),
                     COL_OUTLET_ID         	= c.getColumnIndexOrThrow(DBConsts.FIELD_OUTLET_ID),
+                    COL_ORDER_ID            = c.getColumnIndexOrThrow(DBConsts.FIELD_ORDER_ID),
                     COL_STOCK_ID   		    = c.getColumnIndexOrThrow(DBConsts.FIELD_STOCK_ID),
                     COL_STOCK               = c.getColumnIndexOrThrow(DBConsts.FIELD_STOCK),
                     COL_TIER    	 	    = c.getColumnIndexOrThrow(DBConsts.FIELD_TIER),
@@ -131,6 +133,7 @@ public class StockDB extends DBHelper {
                 StockItem bean = new StockItem();
                 bean.setDespatchID(c.getString(COL_DESPATCH_ID));
                 bean.setOutletID(c.getString(COL_OUTLET_ID));
+                bean.setOrderID(c.getString(COL_ORDER_ID));
                 bean.setStockId(c.getString(COL_STOCK_ID));
                 bean.setStock(c.getString(COL_STOCK));
                 bean.setTier(c.getString(COL_TIER));

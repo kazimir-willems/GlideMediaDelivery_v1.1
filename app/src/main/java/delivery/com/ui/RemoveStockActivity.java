@@ -62,7 +62,7 @@ public class RemoveStockActivity extends AppCompatActivity {
         removeStockList.addItemDecoration(new DividerItemDecoration(RemoveStockActivity.this, DividerItemDecoration.VERTICAL_LIST));
 
         RemoveStockDB removeStockDB = new RemoveStockDB(RemoveStockActivity.this);
-        removeStockItems = removeStockDB.fetchRemoveStocks(outletItem.getDespatchId(), outletItem.getOutletId());
+        removeStockItems = removeStockDB.fetchRemoveStocks(outletItem.getDespatchId(), outletItem.getOutletId(), outletItem.getOrderId());
 
         adapter = new RemoveStockAdapter(RemoveStockActivity.this);
         removeStockList.setAdapter(adapter);
