@@ -38,7 +38,7 @@ public class RemoveStockItem {
     }
 
     public void setOrderID(String value) {
-        this.orderID = "";
+        this.orderID = value;
     }
 
     public String getOrderID() {
