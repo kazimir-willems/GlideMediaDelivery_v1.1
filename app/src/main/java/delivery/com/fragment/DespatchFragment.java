@@ -19,7 +19,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.adapter.DespatchAdapter;
@@ -36,7 +36,7 @@ import delivery.com.ui.OutletActivity;
 
 public class DespatchFragment extends Fragment {
 
-    @Bind(R.id.despatch_list)
+    @BindView(R.id.despatch_list)
     RecyclerView despatchList;
 
     private LinearLayoutManager mLinearLayoutManager;

@@ -13,7 +13,7 @@ import delivery.com.model.StockItem;
 public class DeliveryApplication extends Application {
     private static DeliveryApplication instance;
 
-    private static boolean bLoginStatus = false;
+    public static boolean bLoginStatus = false;
     public static int nAccess = 0;
     public static String staffID = "";
     public static String passcode = "";

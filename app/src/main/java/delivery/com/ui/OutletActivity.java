@@ -21,7 +21,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.adapter.OutletAdapter;
@@ -35,18 +35,18 @@ import delivery.com.util.DateUtil;
 
 public class OutletActivity extends AppCompatActivity {
 
-    @Bind(R.id.outlet_list)
+    @BindView(R.id.outlet_list)
     RecyclerView outletList;
 
-    @Bind(R.id.tv_despatch_id)
+    @BindView(R.id.tv_despatch_id)
     TextView tvDespatchID;
-    @Bind(R.id.tv_run)
+    @BindView(R.id.tv_run)
     TextView tvRun;
-    @Bind(R.id.tv_driver_name)
+    @BindView(R.id.tv_driver_name)
     TextView tvDriverName;
-    @Bind(R.id.tv_route)
+    @BindView(R.id.tv_route)
     TextView tvRoute;
-    @Bind(R.id.tv_reg)
+    @BindView(R.id.tv_reg)
     TextView tvReg;
 
     private OutletAdapter adapter;

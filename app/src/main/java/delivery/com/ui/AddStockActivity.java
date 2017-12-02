@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
@@ -29,15 +29,15 @@ import delivery.com.util.DateUtil;
 
 public class AddStockActivity extends AppCompatActivity {
 
-    @Bind(R.id.remove_stock_list)
+    @BindView(R.id.remove_stock_list)
     RecyclerView removeStockList;
-    @Bind(R.id.tv_outlet)
+    @BindView(R.id.tv_outlet)
     TextView tvOutlet;
-    @Bind(R.id.tv_outlet_id)
+    @BindView(R.id.tv_outlet_id)
     TextView tvOutletID;
-    @Bind(R.id.tv_service)
+    @BindView(R.id.tv_service)
     TextView tvService;
-    @Bind(R.id.tv_address)
+    @BindView(R.id.tv_address)
     TextView tvAddress;
 
     private OutletItem outletItem;

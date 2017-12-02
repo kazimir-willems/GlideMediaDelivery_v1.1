@@ -8,6 +8,7 @@ public class SharedPrefManager {
     private static final String TAG_PASSWORD = "password";
     private static final String TAG_CLOCK_STATUS = "clock_status";
     private static final String TAG_LUNCH_STATUS = "lunch_status";
+    private static final String TAG_LOGGED_IN = "logged_in";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -64,5 +65,19 @@ public class SharedPrefManager {
     public boolean getLunchStatus(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getBoolean(TAG_LUNCH_STATUS, false);
+    }
+
+    public boolean saveLoggedIn(boolean flag){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_LOGGED_IN, flag);
+        editor.apply();
+        return true;
+    }
+
+    //this method will fetch the device token from shared preferences
+    public boolean getLoggedIn(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_LOGGED_IN, false);
     }
 }

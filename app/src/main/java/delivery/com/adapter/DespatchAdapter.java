@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -99,25 +99,25 @@ public class DespatchAdapter extends RecyclerView.Adapter<DespatchAdapter.Despat
     public class DespatchViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.despatch_layout)
+        @BindView(R.id.despatch_layout)
         LinearLayout despatchLayout;
-        @Bind(R.id.title_despatch)
+        @BindView(R.id.title_despatch)
         TextView tvTitleDespatch;
-        @Bind(R.id.tv_despatch_id)
+        @BindView(R.id.tv_despatch_id)
         TextView tvDespatchId;
-        @Bind(R.id.title_run)
+        @BindView(R.id.title_run)
         TextView tvTitleRun;
-        @Bind(R.id.tv_run)
+        @BindView(R.id.tv_run)
         TextView tvRun;
-        @Bind(R.id.title_driver)
+        @BindView(R.id.title_driver)
         TextView tvTitleDriver;
-        @Bind(R.id.tv_driver_name)
+        @BindView(R.id.tv_driver_name)
         TextView tvDriverName;
-        @Bind(R.id.tv_outlet_completed)
+        @BindView(R.id.tv_outlet_completed)
         TextView tvOutletCompleted;
-        @Bind(R.id.btn_delete)
+        @BindView(R.id.btn_delete)
         Button btnDelete;
-        @Bind(R.id.iv_mark)
+        @BindView(R.id.iv_mark)
         ImageView ivMark;
 
         public DespatchViewHolder(View view) {

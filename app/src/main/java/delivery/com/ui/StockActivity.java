@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
@@ -45,17 +45,17 @@ import delivery.com.util.DateUtil;
 
 public class StockActivity extends AppCompatActivity
 {
-    @Bind(R.id.view_pager)
+    @BindView(R.id.view_pager)
     ViewPager viewPager;
-    @Bind(R.id.tv_outlet)
+    @BindView(R.id.tv_outlet)
     TextView tvOutlet;
-    @Bind(R.id.tv_outlet_id)
+    @BindView(R.id.tv_outlet_id)
     TextView tvOutletID;
-    @Bind(R.id.tv_service)
+    @BindView(R.id.tv_service)
     TextView tvService;
-    @Bind(R.id.tv_address)
+    @BindView(R.id.tv_address)
     TextView tvAddress;
-    @Bind(R.id.btn_complete)
+    @BindView(R.id.btn_complete)
     Button btnComplete;
 
     private OutletItem outletItem;

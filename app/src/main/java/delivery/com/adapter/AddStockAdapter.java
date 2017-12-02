@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -91,21 +91,21 @@ public class AddStockAdapter extends RecyclerView.Adapter<AddStockAdapter.AddSto
     public class AddStockViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.tv_title_id)
+        @BindView(R.id.tv_title_id)
         TextView tvTitleID;
-        @Bind(R.id.tv_status)
+        @BindView(R.id.tv_status)
         TextView tvStatus;
-        @Bind(R.id.tv_stock)
+        @BindView(R.id.tv_stock)
         TextView tvStock;
-        @Bind(R.id.tv_size)
+        @BindView(R.id.tv_size)
         TextView tvSize;
-        @Bind(R.id.tv_stock_status)
+        @BindView(R.id.tv_stock_status)
         TextView tvStockStatus;
-        @Bind(R.id.tv_row_num)
+        @BindView(R.id.tv_row_num)
         TextView tvRowNum;
-        @Bind(R.id.tv_slot_num)
+        @BindView(R.id.tv_slot_num)
         TextView tvSlotNum;
-        @Bind(R.id.tv_slot)
+        @BindView(R.id.tv_slot)
         TextView tvSlot;
 
         public AddStockViewHolder(View view) {

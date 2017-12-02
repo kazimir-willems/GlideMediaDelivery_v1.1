@@ -1,6 +1,8 @@
 package delivery.com.ui;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,7 +20,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
@@ -41,11 +43,11 @@ import delivery.com.vo.LoginResponseVo;
 
 public class ClockActivity extends AppCompatActivity {
 
-    @Bind(R.id.btn_clock)
+    @BindView(R.id.btn_clock)
     Button btnClock;
-    @Bind(R.id.btn_lunch)
+    @BindView(R.id.btn_lunch)
     Button btnLunch;
-    @Bind(R.id.clock_list)
+    @BindView(R.id.clock_list)
     RecyclerView clockList;
 
     private ArrayList<ClockItem> clockItems = new ArrayList<>();

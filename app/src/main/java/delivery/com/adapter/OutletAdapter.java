@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -115,21 +115,21 @@ public class OutletAdapter extends RecyclerView.Adapter<OutletAdapter.OutletView
     public class OutletViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.outlet_layout)
+        @BindView(R.id.outlet_layout)
         LinearLayout outletLayout;
-        @Bind(R.id.tv_outlet)
+        @BindView(R.id.tv_outlet)
         TextView tvOutlet;
-        @Bind(R.id.tv_outlet_id)
+        @BindView(R.id.tv_outlet_id)
         TextView tvOutletID;
-        @Bind(R.id.tv_service)
+        @BindView(R.id.tv_service)
         TextView tvService;
-        @Bind(R.id.tv_address)
+        @BindView(R.id.tv_address)
         TextView tvAddress;
-        @Bind(R.id.iv_mark)
+        @BindView(R.id.iv_mark)
         ImageView ivMark;
-        @Bind(R.id.btn_view_crate)
+        @BindView(R.id.btn_view_crate)
         TextView btnViewCrate;
-        @Bind(R.id.btn_cannot_deliver)
+        @BindView(R.id.btn_cannot_deliver)
         TextView btnCannotDeliver;
 
         public OutletViewHolder(View view) {

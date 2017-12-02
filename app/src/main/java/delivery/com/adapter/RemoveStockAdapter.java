@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -74,13 +74,13 @@ public class RemoveStockAdapter extends RecyclerView.Adapter<RemoveStockAdapter.
     public class RemoveStockViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.tv_title_id)
+        @BindView(R.id.tv_title_id)
         TextView tvTitleID;
-        @Bind(R.id.tv_size)
+        @BindView(R.id.tv_size)
         TextView tvSize;
-        @Bind(R.id.tv_title)
+        @BindView(R.id.tv_title)
         TextView tvTitle;
-        @Bind(R.id.tv_row_num)
+        @BindView(R.id.tv_row_num)
         TextView tvRowNum;
 
         public RemoveStockViewHolder(View view) {

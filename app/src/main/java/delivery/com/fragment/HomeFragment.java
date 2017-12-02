@@ -1,5 +1,6 @@
 package delivery.com.fragment;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -25,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
@@ -47,6 +48,7 @@ import delivery.com.task.DownloadDespatchTask;
 import delivery.com.task.MakeUploadDataTask;
 import delivery.com.task.RemoveAllDataTask;
 import delivery.com.task.UploadDespatchTask;
+import delivery.com.ui.LoginActivity;
 import delivery.com.ui.MainActivity;
 import delivery.com.vo.DownloadDespatchResponseVo;
 import delivery.com.vo.UploadDespatchResponseVo;
@@ -54,6 +56,9 @@ import delivery.com.vo.UploadDespatchResponseVo;
 public class HomeFragment extends Fragment {
 
     private ProgressDialog progressDialog;
+
+    private static final int LOGIN_REQUEST = 1;
+    private int mode = 0;       //1: download, 0: upload
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -153,14 +158,38 @@ public class HomeFragment extends Fragment {
 
     @OnClick(R.id.btn_download_dispatch)
     void onClickBtnDownDespatch() {
+        if(DeliveryApplication.bLoginStatus) {
+            requestDownload();
+            return;
+        }
+        mode = 1;
+
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.putExtra("from", 1);
+
+        startActivityForResult(intent, LOGIN_REQUEST);
+    }
+
+    @OnClick(R.id.btn_upload_dispatches)
+    void onClickBtnUploadDespatch() {
+        if(DeliveryApplication.bLoginStatus) {
+            requestUpload();
+            return;
+        }
+        mode = 0;
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.putExtra("from", 1);
+
+        startActivityForResult(intent, LOGIN_REQUEST);
+    }
+
+    private void requestDownload() {
         progressDialog.setMessage(getResources().getString(R.string.downloading));
         progressDialog.show();
         startDownloadDespatch();
     }
 
-    @OnClick(R.id.btn_upload_dispatches)
-    void onClickBtnUploadDespatch() {
-
+    private void requestUpload() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.msg_enter_the_passcode);
 
@@ -295,6 +324,23 @@ public class HomeFragment extends Fragment {
 
     private void showPermissionDenied() {
         Toast.makeText(getActivity(), R.string.permission_denied, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == LOGIN_REQUEST) {
+            if(resultCode == Activity.RESULT_OK){
+                if(mode == 0) {
+                    requestUpload();
+                } else if (mode == 1) {
+                    requestDownload();
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
     }
 
 }

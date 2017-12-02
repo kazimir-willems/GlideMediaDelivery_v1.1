@@ -1,5 +1,6 @@
 package delivery.com.ui;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
@@ -14,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.application.DeliveryApplication;
@@ -25,16 +26,18 @@ import delivery.com.fragment.HomeFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolBar;
-    @Bind(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-    @Bind(R.id.nav_view)
+    @BindView(R.id.nav_view)
     NavigationView navigationView;
 
     private ActionBarDrawerToggle toggle;
 
     public ProgressDialog dlgProg;
+
+    private static final int LOGIN_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +92,17 @@ public class MainActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(R.string.title_despatch_fragment);
                 break;
             case R.id.nav_clock:
-                Intent intent = new Intent(MainActivity.this, ClockActivity.class);
+                if(DeliveryApplication.bLoginStatus) {
+                    Intent intent = new Intent(MainActivity.this, ClockActivity.class);
 
-                startActivity(intent);
+                    startActivity(intent);
+                    break;
+                }
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+
+                intent.putExtra("from", 2);
+
+                startActivityForResult(intent, LOGIN_REQUEST);
                 break;
             default:
                 break;
@@ -118,6 +129,21 @@ public class MainActivity extends AppCompatActivity
             getFragmentManager().beginTransaction()
                     .replace(R.id.main_frame, fragment)
                     .commit();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == LOGIN_REQUEST) {
+            if(resultCode == Activity.RESULT_OK){
+                Intent intent = new Intent(MainActivity.this, ClockActivity.class);
+
+                startActivity(intent);
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
         }
     }
 

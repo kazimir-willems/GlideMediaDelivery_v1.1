@@ -15,7 +15,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.adapter.DespatchAdapter;
@@ -35,11 +35,11 @@ import delivery.com.ui.StockActivity;
 
 public class StockFragment extends Fragment {
 
-    @Bind(R.id.tv_tier)
+    @BindView(R.id.tv_tier)
     TextView tvTier;
-    @Bind(R.id.stock_list)
+    @BindView(R.id.stock_list)
     RecyclerView stockList;
-    @Bind(R.id.tv_tier_space)
+    @BindView(R.id.tv_tier_space)
     TextView tvTierSpace;
 
     private String tier;

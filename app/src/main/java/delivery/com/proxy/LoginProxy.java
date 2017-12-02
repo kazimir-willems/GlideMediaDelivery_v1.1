@@ -1,5 +1,7 @@
 package delivery.com.proxy;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class LoginProxy extends BaseProxy {
         String contentString = postPlain(URLManager.getLoginURL(), formBody);
 
         LoginResponseVo responseVo = new Gson().fromJson(contentString, LoginResponseVo.class);
+        Log.v("Passcode", responseVo.passcode);
 
         return responseVo;
     }

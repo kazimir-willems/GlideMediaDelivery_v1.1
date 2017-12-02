@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.model.ClockItem;
@@ -71,11 +71,11 @@ public class ClockAdapter extends RecyclerView.Adapter<ClockAdapter.ClockViewHol
     public class ClockViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.tv_status)
+        @BindView(R.id.tv_status)
         TextView tvStatus;
-        @Bind(R.id.tv_datetime)
+        @BindView(R.id.tv_datetime)
         TextView tvDateTime;
-        @Bind(R.id.tv_row_num)
+        @BindView(R.id.tv_row_num)
         TextView tvRowNum;
 
         public ClockViewHolder(View view) {

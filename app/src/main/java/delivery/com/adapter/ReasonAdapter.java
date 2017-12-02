@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -76,11 +76,11 @@ public class ReasonAdapter extends RecyclerView.Adapter<ReasonAdapter.ReasonView
     public class ReasonViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.reason_layout)
+        @BindView(R.id.reason_layout)
         LinearLayout reasonLayout;
-        @Bind(R.id.btn_radio)
+        @BindView(R.id.btn_radio)
         RadioButton btnRadio;
-        @Bind(R.id.tv_reason)
+        @BindView(R.id.tv_reason)
         TextView tvReason;
 
         public ReasonViewHolder(View view) {

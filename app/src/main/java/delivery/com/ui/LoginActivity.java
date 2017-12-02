@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import delivery.com.R;
@@ -26,6 +27,7 @@ import delivery.com.consts.StateConsts;
 import delivery.com.crypto.AES;
 import delivery.com.event.LoginEvent;
 import delivery.com.task.LoginTask;
+import delivery.com.util.SharedPrefManager;
 import delivery.com.util.StringUtil;
 import delivery.com.util.Strings;
 import delivery.com.vo.LoginResponseVo;
@@ -35,15 +37,17 @@ public class LoginActivity extends AppCompatActivity {
     //defining views
     private ProgressDialog progressDialog;
 
-    @Bind(R.id.edt_user_name)
+    @BindView(R.id.edt_user_name)
     TextInputEditText edtUserName;
-    @Bind(R.id.edt_password)
+    @BindView(R.id.edt_password)
     TextInputEditText edtPassword;
 
     private Animation shake;
 
     private String username;
     private String password;
+
+    private int from = 0;       //own
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +56,21 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        from = getIntent().getIntExtra("from", 0);
+
         progressDialog = new ProgressDialog(this);
         shake = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.edittext_shake);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -81,7 +97,16 @@ public class LoginActivity extends AppCompatActivity {
                 DeliveryApplication.staffID = responseVo.staffID;
                 Log.v("StaffID", DeliveryApplication.staffID);
                 DeliveryApplication.passcode = responseVo.passcode;
-                startHomeActivity();
+
+                SharedPrefManager.getInstance(this).saveLoggedIn(true);
+                DeliveryApplication.bLoginStatus = true;
+
+                if(from == 0) {
+                    startHomeActivity();
+                } else {
+                    setResult(RESULT_OK);
+                    finish();
+                }
             } else {
                 loginFailed();
             }
@@ -91,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_signin)
-    void onClickBtnSignIn() {
+    public void onClickBtnSignIn() {
         username = edtUserName.getText().toString();
         password = edtPassword.getText().toString();
 
@@ -129,10 +154,11 @@ public class LoginActivity extends AppCompatActivity {
     //storing token to mysql server
     private void startSignIn() {
 
-        if(username.equals("driver") && password.equals("wordpass123")) {
+        /*if(username.equals("driver") && password.equals("wordpass123")) {
             DeliveryApplication.nAccess = StateConsts.USER_DRIVER;
+
             startHomeActivity();
-        } else {
+        } else {*/
             progressDialog.setMessage(getResources().getString(R.string.signing_in));
             progressDialog.show();
 
@@ -147,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
 
             LoginTask task = new LoginTask();
             task.execute(json.toString());
-        }
+        /*}*/
     }
 
     //start Home Activity

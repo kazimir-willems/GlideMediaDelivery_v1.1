@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import delivery.com.R;
 import delivery.com.consts.StateConsts;
@@ -173,37 +173,37 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
     public class StockViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        @Bind(R.id.total_layout)
+        @BindView(R.id.total_layout)
         LinearLayout totalLayout;
-        @Bind(R.id.stock_layout)
+        @BindView(R.id.stock_layout)
         RelativeLayout stockLayout;
-        @Bind(R.id.remove_layout)
+        @BindView(R.id.remove_layout)
         LinearLayout removeLayout;
-        @Bind(R.id.tv_slot)
+        @BindView(R.id.tv_slot)
         TextView tvSlot;
-        @Bind(R.id.tv_stock)
+        @BindView(R.id.tv_stock)
         TextView tvStock;
-        @Bind(R.id.tv_title_id)
+        @BindView(R.id.tv_title_id)
         TextView tvTitleID;
-        @Bind(R.id.tv_size)
+        @BindView(R.id.tv_size)
         TextView tvSize;
-        @Bind(R.id.tv_stock_status)
+        @BindView(R.id.tv_stock_status)
         TextView tvStockStatus;
-        @Bind(R.id.tv_remove)
+        @BindView(R.id.tv_remove)
         TextView tvRemove;
-        @Bind(R.id.tv_remove_id)
+        @BindView(R.id.tv_remove_id)
         TextView tvRemoveID;
-        @Bind(R.id.btn_full)
+        @BindView(R.id.btn_full)
         Button btnFull;
-        @Bind(R.id.btn_restock)
+        @BindView(R.id.btn_restock)
         Button btnRestock;
-        @Bind(R.id.btn_none)
+        @BindView(R.id.btn_none)
         Button btnNone;
-        @Bind(R.id.btn_missing)
+        @BindView(R.id.btn_missing)
         Button btnMissing;
-        @Bind(R.id.tv_empty_slot)
+        @BindView(R.id.tv_empty_slot)
         TextView tvEmptySlot;
-        @Bind(R.id.empty_layout)
+        @BindView(R.id.empty_layout)
         LinearLayout emptyLayout;
 
         public StockViewHolder(View view) {
